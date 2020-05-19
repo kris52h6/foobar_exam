@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FooBar Checkout</title>
+    <link rel="stylesheet" type="text/css" href="form.css" />
+  </head>
+  <body>
+    <div class="title">
+      <h1>Checkout</h1>
+    </div>
+
+    <div id="form_wrap">
+      <section id="subscribe_form">
+        <form action="test.html" method="POST">
+          <label for="name">CARDHOLDER NAME</label>
+          <input type="text" id="name" placeholder="John Doe" />
+
+          <label for="cardnumber">CARD NUMBER</label>
+          <input type="text" id="cardnumber" placeholder="1234 5678 3456 2456" />
+
+          <div class="details_wrapper">
+            <div class="tester">
+              <label for="expire">Expire</label>
+              <input type="text" id="expire" placeholder="05 / 21" />
+            </div>
+
+            <div class="tester2">
+              <label for="cvc">CVC</label>
+              <input type="text" id="cvc" placeholder="123" />
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <div class="proceed">
+      <a>Accept</a>
+    </div>
+  </body>
+</html>

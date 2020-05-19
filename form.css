@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #111111;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px 0;
+}
+
+h2 {
+  margin-top: 5px;
+  color: white;
+  font-size: 1rem;
+}
+
+.title {
+  background-color: #1d1d1d;
+  height: 60px;
+}
+
+.title img {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 4vw;
+  top: 0;
+  margin-top: 25px;
+}
+
+.grid {
+  padding: 30px;
+  background-color: #1d1d1d;
+}
+
+.beerlist {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+}
+
+.images {
+  width: 150px;
+  height: 150px;
+}
+
+.images img {
+  width: 100%;
+  height: 100%;
+}
+
+.grid button {
+  margin-top: 30px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #bc86fc;
+  color: white;
+  font-size: 1.2rem;
+  border: 0px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
+
+.proceed {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #bc86fc;
+  border: 0px;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+}
+
+.proceed a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  line-height: 45px;
+}
+
+/******* form cart *******/
+
+.title a {
+  text-decoration: none;
+  position: absolute;
+  font-size: 2rem;
+  color: white;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+#subscribe_form {
+  margin-top: 4vw;
+  display: grid;
+  justify-content: center;
+}
+
+form {
+  width: 80vw;
+  margin: 10px auto;
+  padding: 50px;
+  border-radius: 5px;
+}
+
+label {
+  color: white;
+}
+
+input[type="text"],
+input[type="email"] {
+  background-color: #1d1d1d;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0.2rem;
+  border: none;
+  color: white;
+  display: block;
+  font-size: 0.875em;
+  margin: 0 0 1em 0;
+  padding: 0.5em;
+  height: 2rem;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.details_wrapper {
+  display: flex;
+}
+
+.tester {
+  width: 15vw;
+}
+
+.tester2 {
+  margin-left: 20px;
+  width: 10vw;
+}
