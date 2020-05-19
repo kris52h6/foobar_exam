@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", start);
 
+let costumerQueue = [];
+
 function start() {
   getJson();
 }
@@ -10,6 +12,8 @@ async function getJson(myJson) {
   myJson = await jsonData.json();
 
   console.log(myJson);
+  console.log(myJson.queue.length);
 
-  prepData(myJson);
+  document.querySelector("h1").textContent = "Costumers in queue:" + " " + myJson.queue.length;
+  // prepData(myJson);
 }
