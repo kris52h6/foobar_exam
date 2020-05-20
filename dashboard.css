@@ -8,15 +8,68 @@ body {
   background-color: #111111;
 }
 
+h1 {
+  color: white;
+}
+
+/*** QUEUE CHART ***/
+
 .queueBars {
   grid-area: queueBars;
+
+  display: flex;
+  justify-content: center;
 }
+
+#barParent {
+  background-color: #1d1d1d;
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+
+  align-self: flex-end;
+}
+
+.bars {
+  width: 3vw;
+  height: calc(var(--height) * 30px);
+  margin-left: 5px;
+  margin-bottom: 10px;
+  border: #bc86fc solid;
+  border-radius: 10px 10px 0px 0px;
+  background-color: #bc86fc;
+}
+
+/*** QUEUE LENGTH ***/
 .queueLength {
   grid-area: queueLength;
 }
+
+.queueLength h1 {
+  font-size: 1.5rem;
+}
+
+/*** BARTENDER STATUS ***/
 .bartenderStatus {
   grid-area: bartenderStatus;
 }
+
+.bartenderStatus h2,
+h3,
+h4 {
+  color: white;
+}
+
+.bartenderList {
+  margin-top: 20px;
+  display: flex;
+}
+
+.bartender_wrapper {
+  width: 20vw;
+}
+
+/*** TOTAL EARNINGS ***/
 .totalEarnings {
   grid-area: totalEarnings;
 }

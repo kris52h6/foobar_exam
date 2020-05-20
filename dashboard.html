@@ -8,7 +8,9 @@
   </head>
   <body>
     <section class="content">
-      <div class="queueLength box"></div>
+      <div class="queueLength box">
+        <h1>Costumers in queue:</h1>
+      </div>
       <div class="queueBars box">
         <div id="barParent">
           <div class="bars"></div>
@@ -21,12 +23,22 @@
           <div class="bars"></div>
         </div>
       </div>
-      <div class="bartenderStatus box"></div>
+      <div class="bartenderStatus box">
+        <h1>Bartender status</h1>
+        <template>
+          <div class="bartender_wrapper">
+            <h2></h2>
+            <h3></h3>
+            <h4></h4>
+          </div>
+        </template>
+        <section class="bartenderList"></section>
+      </div>
       <div class="totalEarnings box"></div>
 
       <div class="right box"></div>
     </section>
-
-    <script src="test.js"></script>
   </body>
+  <script src="test.js"></script>
+  <script src="dashboard.js"></script>
 </html>
