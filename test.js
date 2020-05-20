@@ -22,7 +22,6 @@ async function getQueue(queueJson) {
   // setHeights(queueJson);
   total(queueJson);
   setHeights(queueJson);
-  addCostumer(queueJson);
   beerStorage(queueJson);
 }
 
@@ -60,16 +59,9 @@ function setHeights(queueJson) {
 
 /*** COSTUMER QUEUE IMAGES */
 
-function addCostumer(getQueue) {
-  let costumers = getQueue.queue.length;
-  // console.log(costumers);
-
-  for (let i = 0; i < costumerQueue.length; i++) {}
-}
-
 function beerStorage(queueJson) {
   for (let i = 0; i < queueJson.storage.length; i++) {
-    console.log(queueJson.storage[i].amount);
+    // console.log(queueJson.storage[i].amount);
 
     let beerBar = document.querySelector(`#storage_parent > div:nth-child(${i + 1}) > div.storage_bar`);
 

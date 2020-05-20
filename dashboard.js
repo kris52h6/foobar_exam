@@ -16,7 +16,7 @@ async function getJson(myJson) {
   //   console.log(myJson);
   //   console.log(myJson.queue.length);
 
-  document.querySelector("h1").textContent = "Costumers in queue:" + " " + myJson.queue.length;
+  document.querySelector("h2").textContent = +myJson.queue.length;
 
   bartenderStatus(myJson);
   //   beerStorage(myJson);

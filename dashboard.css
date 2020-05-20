@@ -49,6 +49,12 @@ h1 {
   font-size: 1.5rem;
 }
 
+.queueLength h2 {
+  color: white;
+  text-align: end;
+  font-size: 3rem;
+}
+
 .costumer_images {
   display: flex;
 }
@@ -88,6 +94,51 @@ h4 {
 }
 
 /***** BEER STORAGE ****/
+
+.single-chart {
+  width: 50%;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+.circular-chart {
+  display: block;
+  margin: 10px auto;
+  max-width: 80%;
+  max-height: 250px;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #222224;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+  stroke-dasharray: var(--stroke), 100;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.circular-chart.orange .circle {
+  stroke: #bc86fc;
+}
+
+.percentage {
+  fill: #666;
+  font-family: sans-serif;
+  font-size: 0.5em;
+  text-anchor: middle;
+}
+
 .right {
   grid-area: right;
 }
@@ -97,26 +148,30 @@ h4 {
   display: flex;
 }
 
-.beer img {
-  width: 100%;
-}
-
 .storage_bar {
-  width: calc(var(--width) * 30px);
-  height: 100%;
+  width: calc(var(--width) * 10px);
+  height: 30px;
+  margin: auto;
   margin-left: 5px;
   border: #bc86fc solid;
+  border-radius: 10%;
   background-color: #bc86fc;
 }
 
-.storage_image {
+.storage_image img {
   width: 50px;
   height: 50px;
 }
 
+#storage_parent {
+  margin-top: 5vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .content {
   display: grid;
-  grid-template-columns: 20vw 20vw 20vw 25vw;
+  grid-template-columns: 20vw 20vw 20vw 32vw;
   grid-template-rows: auto;
   grid-template-areas:
     "queueBars queueBars queueLength right"
