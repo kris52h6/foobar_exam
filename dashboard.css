@@ -1,0 +1,48 @@
+* {
+  margin: 0 0 0 0;
+  /* padding: 10px; */
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #111111;
+}
+
+.queueBars {
+  grid-area: queueBars;
+}
+.queueLength {
+  grid-area: queueLength;
+}
+.bartenderStatus {
+  grid-area: bartenderStatus;
+}
+.totalEarnings {
+  grid-area: totalEarnings;
+}
+
+.right {
+  grid-area: right;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 20vw 20vw 20vw 25vw;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "queueBars queueBars queueLength right"
+    "bartenderStatus bartenderStatus bartenderStatus right"
+    "totalEarnings totalEarnings totalEarnings right";
+
+  column-gap: 20px;
+  row-gap: 20px;
+
+  height: 100vh;
+  padding: 20px;
+}
+
+.box {
+  border: black solid 2px;
+
+  background-color: #1d1d1d;
+}
