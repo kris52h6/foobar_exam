@@ -19,6 +19,7 @@ async function getJson(myJson) {
   document.querySelector("h1").textContent = "Costumers in queue:" + " " + myJson.queue.length;
 
   bartenderStatus(myJson);
+  //   beerStorage(myJson);
   // setHeights(myJson);
 }
 
@@ -58,7 +59,13 @@ function bartenderStatus(myJson) {
       const klon = skabelon.cloneNode(true).content;
       klon.querySelector("h2").textContent = bartender.name;
 
-      klon.querySelector("h3").textContent = bartender.status;
+      if (bartender.status === "WORKING") {
+        klon.querySelector("h3").textContent = "Working";
+      } else {
+        klon.querySelector("h3").textContent = "Waiting";
+      }
+
+      //   klon.querySelector("h3").textContent = bartender.status;
 
       if (bartender.statusDetail === "pourBeer") {
         klon.querySelector("h4").textContent = "Pouring Beer";

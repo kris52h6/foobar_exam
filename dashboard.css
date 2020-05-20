@@ -49,6 +49,19 @@ h1 {
   font-size: 1.5rem;
 }
 
+.costumer_images {
+  display: flex;
+}
+
+.costumer_img img {
+  width: 100%;
+}
+
+.costumer_img {
+  height: 20px;
+  width: 20px;
+}
+
 /*** BARTENDER STATUS ***/
 .bartenderStatus {
   grid-area: bartenderStatus;
@@ -74,8 +87,31 @@ h4 {
   grid-area: totalEarnings;
 }
 
+/***** BEER STORAGE ****/
 .right {
   grid-area: right;
+}
+
+.beer {
+  padding: 10px;
+  display: flex;
+}
+
+.beer img {
+  width: 100%;
+}
+
+.storage_bar {
+  width: calc(var(--width) * 30px);
+  height: 100%;
+  margin-left: 5px;
+  border: #bc86fc solid;
+  background-color: #bc86fc;
+}
+
+.storage_image {
+  width: 50px;
+  height: 50px;
 }
 
 .content {
