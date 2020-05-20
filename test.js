@@ -19,7 +19,19 @@ async function getJson(myJson) {
 
   // document.querySelector("h1").textContent = "Costumers in queue:" + " " + myJson.queue.length;
 
-  setHeights(myJson);
+  // setHeights(myJson);
+  total(myJson);
+}
+
+function total(myJson) {
+  let totalBeers = myJson.storage.reduce((accum, item) => accum + item.amount, 0);
+
+  console.log("total beers:" + totalBeers);
+
+  let circle = document.querySelector(".circle");
+  circle.style.setProperty("--stroke", totalBeers);
+
+  document.querySelector(".percentage").textContent = totalBeers + "%";
 }
 
 function count(myJson) {
