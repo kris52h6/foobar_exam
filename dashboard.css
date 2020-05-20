@@ -8,15 +8,46 @@ body {
   background-color: #111111;
 }
 
+h1 {
+  color: white;
+}
+
+/*** QUEUE CHART ***/
+
 .queueBars {
   grid-area: queueBars;
 }
+
+/*** QUEUE LENGTH ***/
 .queueLength {
   grid-area: queueLength;
 }
+
+.queueLength h1 {
+  font-size: 1.5rem;
+}
+
+/*** BARTENDER STATUS ***/
 .bartenderStatus {
   grid-area: bartenderStatus;
 }
+
+.bartenderStatus h2,
+h3,
+h4 {
+  color: white;
+}
+
+.bartenderList {
+  margin-top: 20px;
+  display: flex;
+}
+
+.bartender_wrapper {
+  width: 20vw;
+}
+
+/*** TOTAL EARNINGS ***/
 .totalEarnings {
   grid-area: totalEarnings;
 }
