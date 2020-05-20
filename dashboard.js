@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", start);
 
 // let costumerQueue = [];
+// costumerQueue.length = 8;
 
 function start() {
   setInterval(() => {
@@ -18,7 +19,30 @@ async function getJson(myJson) {
   document.querySelector("h1").textContent = "Costumers in queue:" + " " + myJson.queue.length;
 
   bartenderStatus(myJson);
+  // setHeights(myJson);
 }
+
+// function count(myJson) {
+//   let height = myJson.queue.length;
+
+//   costumerQueue.push(height);
+
+//   costumerQueue.shift();
+
+//   setTimeout(getJson, 10000);
+// }
+
+// function setHeights(myJson) {
+//   console.log(myJson);
+
+//   for (let i = 0; i < costumerQueue.length; i++) {
+//     let bar = document.querySelector(`#barParent > div:nth-child(${i + 1})`);
+
+//     bar.style.setProperty("--height", costumerQueue[i]);
+//   }
+
+//   count(myJson);
+// }
 
 function bartenderStatus(myJson) {
   //   console.log(myJson.bartenders[0].statusDetail);
