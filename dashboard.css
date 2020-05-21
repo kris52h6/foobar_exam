@@ -9,6 +9,10 @@ body {
   background-color: #111111;
 }
 
+img {
+  width: 100%;
+}
+
 h1 {
   color: white;
 }
@@ -53,7 +57,7 @@ h1 {
 .queueLength h2 {
   color: white;
   text-align: end;
-  font-size: 3rem;
+  font-size: 5rem;
   font-weight: 100;
 }
 
@@ -88,6 +92,20 @@ h4 {
 
 .bartender_wrapper {
   width: 20vw;
+}
+
+.icons {
+  display: flex;
+}
+
+.largeIcon {
+  width: 5vw;
+
+  /* background-image: url(icons/bartender.png); */
+}
+.smallIcon {
+  margin-top: 10px;
+  width: 3vw;
 }
 
 /*** TOTAL EARNINGS ***/
@@ -197,4 +215,5 @@ h4 {
 .box {
   border: black solid 2px;
   background-color: #1d1d1d;
+  padding: 15px;
 }

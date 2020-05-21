@@ -69,25 +69,32 @@ function bartenderStatus(myJson) {
 
       if (bartender.statusDetail === "pourBeer") {
         klon.querySelector("h4").textContent = "Pouring Beer";
+        klon.querySelector(".icons>.smallIcon>.icon").src = "icons/pouringBeer.png";
       }
       if (bartender.statusDetail === "receivePayment") {
         klon.querySelector("h4").textContent = "Recieving Payment";
+        klon.querySelector(".icons>.smallIcon>.icon").src = "icons/recivingPayment.png";
       }
       if (bartender.statusDetail === "replaceKeg") {
         klon.querySelector("h4").textContent = "Replacing Keg";
+        klon.querySelector(".icons>.smallIcon>.icon").src = "icons/changingKeg.png";
       }
       if (bartender.statusDetail === "reserveTap") {
         klon.querySelector("h4").textContent = "Reserving Tap";
+        klon.querySelector(".icons>.smallIcon>.icon").src = "icons/reserveTap.png";
       }
       if (bartender.statusDetail === "releaseTap") {
         klon.querySelector("h4").textContent = "Releasing Tap";
+        klon.querySelector(".icons>.smallIcon>.icon").src = "icons/releasingTap.png";
       }
       if (bartender.statusDetail === "startServing") {
         klon.querySelector("h4").textContent = "Starting Service";
+        klon.querySelector(".icons>.smallIcon>.icon").src = "icons/startingService.png";
       }
 
       if (bartender.statusDetail === "waiting") {
         klon.querySelector("h4").textContent = "Waiting";
+        klon.querySelector(".icons>.smallIcon>.icon").src = "icons/waiting.png";
       }
 
       //   klon.querySelector("h4").textContent = bartender.statusDetail;
