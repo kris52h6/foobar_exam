@@ -15,6 +15,33 @@ img {
 
 h1 {
   color: white;
+  opacity: 60%;
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+
+/*** GRID CONTAINER ***/
+
+.content {
+  display: grid;
+  grid-template-columns: 20vw 20vw 20vw 32vw;
+  grid-template-rows: 30vh 30vh 30vh;
+  grid-template-areas:
+    "queueBars queueBars queueLength right"
+    "bartenderStatus bartenderStatus bartenderStatus right"
+    "totalEarnings totalEarnings totalEarnings right";
+
+  column-gap: 20px;
+  row-gap: 20px;
+
+  height: 100vh;
+  padding: 20px;
+}
+
+.box {
+  border: black solid 2px;
+  background-color: #1d1d1d;
+  padding: 15px;
 }
 
 /*** QUEUE CHART ***/
@@ -50,9 +77,9 @@ h1 {
   grid-area: queueLength;
 }
 
-.queueLength h1 {
+/* .queueLength h1 {
   font-size: 1.5rem;
-}
+} */
 
 .queueLength h2 {
   color: white;
@@ -83,15 +110,21 @@ h1 {
 h3,
 h4 {
   color: white;
+  font-weight: 100;
 }
 
 .bartenderList {
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  margin: 20px 0 0px 20px;
+
+  width: 60vw;
   display: flex;
+  justify-content: space-around;
 }
 
 .bartender_wrapper {
-  width: 20vw;
+  width: 15vw;
+  align-items: center;
 }
 
 .icons {
@@ -111,6 +144,8 @@ h4 {
 /*** TOTAL EARNINGS ***/
 .totalEarnings {
   grid-area: totalEarnings;
+
+  display: flex;
 }
 
 .totalEarnings h2 {
@@ -120,10 +155,39 @@ h4 {
   font-weight: 100;
 }
 
+.earnings-chart {
+  width: 25%;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+.circle_earnings {
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+  stroke-dasharray: 60, 100;
+}
+.percentage_earnings {
+  fill: white;
+  font-family: sans-serif;
+  font-size: 0.5em;
+  font-weight: 100;
+  text-anchor: middle;
+  opacity: 60%;
+}
+
+.circular-chart.orange .circle_earnings {
+  stroke: #bc86fc;
+}
+
 /***** BEER STORAGE ****/
 
+.right {
+  grid-area: right;
+}
+
 .single-chart {
-  width: 50%;
+  width: 100%;
   justify-content: space-around;
   margin: 0 auto;
 }
@@ -160,28 +224,26 @@ h4 {
 }
 
 .percentage {
-  fill: #666;
+  fill: white;
   font-family: sans-serif;
   font-size: 0.5em;
+  font-weight: 100;
   text-anchor: middle;
-}
-
-.right {
-  grid-area: right;
+  opacity: 60%;
 }
 
 .beer {
   padding: 10px;
-  display: flex;
 }
 
 .storage_bar {
   width: calc(var(--width) * 10px);
-  height: 30px;
+  height: 10px;
   margin: auto;
-  margin-left: 5px;
+  margin-left: 1px;
+  margin-top: 3px;
   border: #bc86fc solid;
-  border-radius: 10%;
+  border-radius: 0px 10px 10px 0px;
   background-color: #bc86fc;
 }
 
@@ -191,29 +253,14 @@ h4 {
 }
 
 #storage_parent {
-  margin-top: 5vw;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  margin-top: 5vw;
+  margin-left: 2vw;
 }
 
-.content {
-  display: grid;
-  grid-template-columns: 20vw 20vw 20vw 32vw;
-  grid-template-rows: 30vh 30vh 30vh;
-  grid-template-areas:
-    "queueBars queueBars queueLength right"
-    "bartenderStatus bartenderStatus bartenderStatus right"
-    "totalEarnings totalEarnings totalEarnings right";
-
-  column-gap: 20px;
-  row-gap: 20px;
-
-  height: 100vh;
-  padding: 20px;
-}
-
-.box {
-  border: black solid 2px;
-  background-color: #1d1d1d;
-  padding: 15px;
+#storage_parent h2 {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 100;
 }
