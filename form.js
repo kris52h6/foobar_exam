@@ -20,7 +20,6 @@ async function getBeers() {
 function displayBeers(minJson) {
   const modtagerKloner = document.querySelector(".beerlist");
   const skabelon = document.querySelector("template");
-  modtagerKloner.innerHTML = "";
   let taeller = 0;
   // console.log(minJson);
 
@@ -57,12 +56,11 @@ function beerCount(beertype, event) {
   };
 
   cartArray.push(beerObject);
-  console.log(cartArray);
 
-  localStorage.setItem("order", JSON.stringify(beerObject));
+  localStorage.setItem("order", JSON.stringify(cartArray));
 }
 
-function displayCart() {
+function displayCart(cartArray) {
   const skabelon = document.querySelector("template");
   cartlist.innerHTML = "";
   orderArray = [];
@@ -72,13 +70,31 @@ function displayCart() {
   let orderParse = JSON.parse(currentOrder);
   console.log(orderParse);
 
-  orderArray.push(orderParse);
+  // forsøg på at lave price count /
+  // console.log(orderParse[0].amount);
+  // orderPrice = +orderParse[0].amount + +orderParse[1].amount;
+  // console.log((orderPrice *= 50));
+  // document.querySelector("body > div.total > h2").textContent = orderPrice + " DKK";
 
-  console.log(orderArray);
-  orderArray.forEach((order) => {
+  // console.log(orderArray);
+  orderParse.forEach((order) => {
     const klon = skabelon.cloneNode(true).content;
     klon.querySelector("h1").textContent = order.name;
     klon.querySelector("h2").textContent = order.amount;
+
+    // evt bruges til at fjerne øl
+    // klon.querySelector("h2").addEventListener("click", () => {
+    //   removeBeer(order);
+    // });
     cartlist.appendChild(klon);
   });
 }
+
+// start til at fjerne øl
+// function removeBeer(order) {
+//   console.log(order);
+//   order.amount--;
+
+//   console.log(order.amount);
+
+// }
