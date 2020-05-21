@@ -124,6 +124,14 @@ h2 {
   margin-left: 1.5vh;
 }
 
+.total {
+  margin-top: 20vh;
+}
+
+.total h1 {
+  color: white;
+}
+
 /******* form checkout *******/
 
 .title a {
