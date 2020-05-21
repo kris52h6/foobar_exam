@@ -2,6 +2,7 @@
   margin: 0 0 0 0;
   /* padding: 10px; */
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 body {
@@ -53,6 +54,7 @@ h1 {
   color: white;
   text-align: end;
   font-size: 3rem;
+  font-weight: 100;
 }
 
 .costumer_images {
@@ -91,6 +93,13 @@ h4 {
 /*** TOTAL EARNINGS ***/
 .totalEarnings {
   grid-area: totalEarnings;
+}
+
+.totalEarnings h2 {
+  color: white;
+  text-align: end;
+  font-size: 3rem;
+  font-weight: 100;
 }
 
 /***** BEER STORAGE ****/
@@ -172,7 +181,7 @@ h4 {
 .content {
   display: grid;
   grid-template-columns: 20vw 20vw 20vw 32vw;
-  grid-template-rows: auto;
+  grid-template-rows: 30vh 30vh 30vh;
   grid-template-areas:
     "queueBars queueBars queueLength right"
     "bartenderStatus bartenderStatus bartenderStatus right"
