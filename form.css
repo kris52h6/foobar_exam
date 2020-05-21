@@ -9,7 +9,7 @@ body {
   margin-right: 15px;
 }
 
-h1 {
+.title h1 {
   color: white;
   text-align: center;
   margin-top: 20px;
@@ -91,7 +91,40 @@ h2 {
   line-height: 45px;
 }
 
-/******* form cart *******/
+/****** FORM CART *****/
+
+#cart_wrapper {
+  margin-top: 20px;
+  background-color: #1d1d1d;
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+}
+
+#cart_wrapper h1 {
+  color: white;
+}
+
+.cart_left {
+  margin-top: 3vh;
+}
+
+.cart_right {
+  background-color: #bc86fc;
+  margin-right: 2vh;
+  width: 5vh;
+  height: 5vh;
+  margin-top: 3vh;
+  border-radius: 10%;
+}
+
+.cart_right h2 {
+  font-size: 1.5rem;
+  margin-top: 0.5vh;
+  margin-left: 1.5vh;
+}
+
+/******* form checkout *******/
 
 .title a {
   text-decoration: none;
