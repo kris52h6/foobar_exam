@@ -24,14 +24,26 @@ async function getJson(myJson) {
 }
 
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+const currentTheme = localStorage.getItem("theme");
+
+if (currentTheme) {
+  document.querySelector("body").setAttribute("data-theme", currentTheme);
+
+  if (currentTheme === "dark") {
+    toggleSwitch.checked = true;
+  }
+}
 
 function switchTheme(e) {
   if (e.target.checked) {
     document.querySelector("body").setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
   } else {
     document.querySelector("body").setAttribute("data-theme", "light");
+    localStorage.setItem("theme", "light");
   }
 }
+
 toggleSwitch.addEventListener("change", switchTheme, false);
 
 // function count(myJson) {
