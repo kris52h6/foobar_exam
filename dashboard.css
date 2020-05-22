@@ -1,6 +1,5 @@
 * {
   margin: 0 0 0 0;
-  /* padding: 10px; */
   box-sizing: border-box;
   font-family: sans-serif;
 }
@@ -27,7 +26,7 @@ h1 {
   grid-template-columns: 20vw 20vw 20vw 32vw;
   grid-template-rows: 10vh 40vh 40vh;
   grid-template-areas:
-    "titel title title right"
+    "titel title switch right"
     "queueBars queueBars queueLength right"
     "bartenderStatus bartenderStatus bartenderStatus right";
   /* "totalEarnings totalEarnings totalEarnings right"; */
@@ -53,12 +52,13 @@ h1 {
 }
 
 .logo {
-  width: 120px;
+  width: 1000px;
 }
 
 /*** THEME CHANGER ***/
 
 .theme-switch-wrapper {
+  grid-area: switch;
   display: flex;
   align-items: center;
 
@@ -101,7 +101,7 @@ h1 {
 }
 
 input:checked + .slider {
-  background-color: #66bb6a;
+  background-color: #bc86fc;
 }
 
 input:checked + .slider:before {
@@ -178,10 +178,6 @@ input:checked + .slider:before {
   grid-area: queueLength;
 }
 
-/* .queueLength h1 {
-  font-size: 1.5rem;
-} */
-
 .queueLength h2 {
   color: var(--font-color);
   text-align: end;
@@ -234,8 +230,6 @@ h4 {
 
 .largeIcon {
   width: 5vw;
-
-  /* background-image: url(icons/bartender.png); */
 }
 .smallIcon {
   margin-top: 10px;
@@ -256,30 +250,6 @@ h4 {
   font-weight: 100;
 }
 
-.earnings-chart {
-  width: 25%;
-  justify-content: space-around;
-  margin: 0 auto;
-}
-.circle_earnings {
-  fill: none;
-  stroke-width: 2.8;
-  stroke-linecap: round;
-  animation: progress 1s ease-out forwards;
-  stroke-dasharray: 60, 100;
-}
-.percentage_earnings {
-  fill: white;
-  font-family: sans-serif;
-  font-size: 0.5em;
-  font-weight: 100;
-  text-anchor: middle;
-  opacity: 60%;
-}
-
-.circular-chart.orange .circle_earnings {
-  stroke: var(--icon-color);
-} */
 
 /***** BEER STORAGE ****/
 

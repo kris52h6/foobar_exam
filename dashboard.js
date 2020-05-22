@@ -37,9 +37,11 @@ if (currentTheme) {
 function switchTheme(e) {
   if (e.target.checked) {
     document.querySelector("body").setAttribute("data-theme", "dark");
+    document.querySelector(".logo img").src = "icons/dark/logo_2.png";
     localStorage.setItem("theme", "dark");
   } else {
     document.querySelector("body").setAttribute("data-theme", "light");
+    document.querySelector(".logo img").src = "icons/light/logo_1.png";
     localStorage.setItem("theme", "light");
   }
 }
