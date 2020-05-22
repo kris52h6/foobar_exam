@@ -3,11 +3,17 @@ document.addEventListener("DOMContentLoaded", init);
 const beerURL = "https://kristian-victor-foobar.herokuapp.com/beertypes";
 let cartArray = [];
 let cartlist = document.querySelector(".cartlist");
+let testCheck = document.querySelector("body > div.proceed.checkout");
+// const endpoint = "http://kristian-victor-foobar.herokuapp.com/order";
 
 function init() {
   getBeers();
   if (cartlist) {
     displayCart();
+  }
+
+  if (testCheck) {
+    postFunction();
   }
 }
 
@@ -68,8 +74,13 @@ function displayCart(cartArray) {
   let currentOrder = localStorage.getItem("order");
 
   let orderParse = JSON.parse(currentOrder);
-  console.log(orderParse);
+  // console.log(orderParse);
+  console.log(orderParse[0].name);
+  console.log(orderParse[0].amount);
 
+  // document.querySelector("body > div.proceed.checkout").addEventListener("click", () => {
+  //   console.log("test");
+  // });
   // forsøg på at lave price count /
   // console.log(orderParse[0].amount);
   // orderPrice = +orderParse[0].amount + +orderParse[1].amount;
@@ -90,6 +101,39 @@ function displayCart(cartArray) {
   });
 }
 
+function postFunction() {
+  let currentOrder = localStorage.getItem("order");
+  let orderParse = JSON.parse(currentOrder);
+  console.log(orderParse);
+
+  document.querySelector("body > div.proceed.checkout").addEventListener("click", () => {
+    // postBeer([
+    //   {
+    //     name: orderParse[1].name,
+    //     amount: orderParse[1].amount,
+    //   },
+    // ]);
+    postBeer(orderParse);
+  });
+}
+
+function postBeer(orderParse) {
+  // console.log(orderParse);
+  const postData = JSON.stringify(orderParse);
+  // console.log(postData);
+  console.log(postData);
+
+  fetch("http://kristian-victor-foobar.herokuapp.com/order", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
+    body: postData,
+  })
+    .then((res) => res.json())
+    .then((orderParse) => console.log(orderParse));
+}
+
 // start til at fjerne øl
 // function removeBeer(order) {
 //   console.log(order);
@@ -97,4 +141,20 @@ function displayCart(cartArray) {
 
 //   console.log(order.amount);
 
+// }
+
+// function post(data) {
+//   //   showSubmit(data);
+//   const postData = JSON.stringify(data);
+//   fetch(endpoint, {
+//     method: "post",
+//     headers: {
+//       "Content-Type": "application/json; charset=utf-8",
+//       "x-apikey": apiKey,
+//       "cache-control": "no-cache",
+//     },
+//     body: postData,
+//   })
+//     .then((res) => res.json())
+//     .then((data) => console.log(data));
 // }
