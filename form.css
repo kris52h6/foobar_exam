@@ -175,6 +175,7 @@ input[type="email"] {
   height: 2rem;
   width: 100%;
   margin-top: 5px;
+  animation: dissappear 1s linear;
 }
 
 .details_wrapper {
@@ -188,4 +189,67 @@ input[type="email"] {
 .tester2 {
   margin-left: 20px;
   width: 10vw;
+}
+
+.purchaseComplete {
+  display: none;
+  animation: purchase 1s linear;
+}
+
+@keyframes purchase {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100;
+  }
+}
+
+.purchaseModal {
+  width: 80vw;
+  display: none;
+  margin: auto;
+  margin-top: 20vw;
+  height: 200px;
+  color: white;
+  background-color: #1d1d1d;
+  animation: purchase 1s linear;
+  margin-bottom: 50px;
+}
+
+.purchaseModal h1 {
+  margin-left: 10px;
+  padding-top: 10px;
+  font-size: 1.5rem;
+}
+
+.purchaseModal h2 {
+  margin-left: 10px;
+  padding-top: 10px;
+  margin-right: 5px;
+}
+
+.loading {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: white;
+  margin-top: 23px;
+  margin-left: 2px;
+  animation: dots 2s infinite;
+}
+
+.loadingbars {
+  display: flex;
+}
+
+.loading:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+@keyframes dots {
+  50% {
+    opacity: 0;
+  }
 }

@@ -118,7 +118,7 @@ function postFunction() {
 }
 
 function postBeer(orderParse) {
-  // console.log(orderParse);
+  console.log(orderParse);
   const postData = JSON.stringify(orderParse);
   // console.log(postData);
   console.log(postData);
@@ -132,6 +132,23 @@ function postBeer(orderParse) {
   })
     .then((res) => res.json())
     .then((orderParse) => console.log(orderParse));
+
+  purchaseDone();
+}
+
+function purchaseDone() {
+  document.querySelector("body > div.proceed.checkout > a").style.display = "none";
+  document.querySelector("#form_wrap").style.display = "none";
+  document.querySelector(".purchaseModal").style.display = "block";
+  document.querySelector(".purchaseComplete").style.display = "block";
+
+  setInterval(() => {
+    redirectURL();
+  }, 4000);
+}
+
+function redirectURL() {
+  window.location.replace("/form_beer.html");
 }
 
 // start til at fjerne øl
