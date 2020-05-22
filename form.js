@@ -35,19 +35,16 @@ function displayBeers(minJson) {
     minJson.forEach((beertype) => {
       const klon = skabelon.cloneNode(true).content;
       klon.querySelector(".name").textContent = beertype.name;
-      // klon.querySelector(".price").textContent = beer.price + "DKK";
       klon.querySelector("button").id = taeller;
       klon.querySelector("button").addEventListener("click", (event) => {
+        addedToCart();
         beerCount(beertype, event);
       });
       taeller++;
 
       klon.querySelector("img").src = "images/" + beertype.label;
-      // klon.querySelector("img").alt = beertype.label;
+      klon.querySelector("img").alt = beertype.label;
       modtagerKloner.appendChild(klon);
-      // modtagerKloner.querySelector("button").addEventListener("click", () => {
-      //   beerCount(beertype, this);
-      // });
     });
   }
 }
@@ -118,7 +115,7 @@ function postFunction() {
 }
 
 function postBeer(orderParse) {
-  // console.log(orderParse);
+  console.log(orderParse);
   const postData = JSON.stringify(orderParse);
   // console.log(postData);
   console.log(postData);
@@ -132,6 +129,36 @@ function postBeer(orderParse) {
   })
     .then((res) => res.json())
     .then((orderParse) => console.log(orderParse));
+
+  purchaseDone();
+}
+
+function purchaseDone() {
+  document.querySelector("body > div.proceed.checkout > a").style.display = "none";
+  document.querySelector("#form_wrap").style.display = "none";
+  document.querySelector(".purchaseModal").style.display = "block";
+  document.querySelector(".purchaseComplete").style.display = "block";
+
+  setInterval(() => {
+    redirectURL();
+  }, 4000);
+}
+
+function redirectURL() {
+  window.location.replace("/form_beer.html");
+  localStorage.clear();
+}
+
+function addedToCart() {
+  document.querySelector(".addedToCart").style.display = "block";
+
+  setInterval(() => {
+    hideCart();
+  }, 2000);
+}
+
+function hideCart() {
+  document.querySelector(".addedToCart").style.display = "none";
 }
 
 // start til at fjerne øl
