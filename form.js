@@ -35,19 +35,16 @@ function displayBeers(minJson) {
     minJson.forEach((beertype) => {
       const klon = skabelon.cloneNode(true).content;
       klon.querySelector(".name").textContent = beertype.name;
-      // klon.querySelector(".price").textContent = beer.price + "DKK";
       klon.querySelector("button").id = taeller;
       klon.querySelector("button").addEventListener("click", (event) => {
+        addedToCart();
         beerCount(beertype, event);
       });
       taeller++;
 
       klon.querySelector("img").src = "images/" + beertype.label;
-      // klon.querySelector("img").alt = beertype.label;
+      klon.querySelector("img").alt = beertype.label;
       modtagerKloner.appendChild(klon);
-      // modtagerKloner.querySelector("button").addEventListener("click", () => {
-      //   beerCount(beertype, this);
-      // });
     });
   }
 }
@@ -149,6 +146,19 @@ function purchaseDone() {
 
 function redirectURL() {
   window.location.replace("/form_beer.html");
+  localStorage.clear();
+}
+
+function addedToCart() {
+  document.querySelector(".addedToCart").style.display = "block";
+
+  setInterval(() => {
+    hideCart();
+  }, 2000);
+}
+
+function hideCart() {
+  document.querySelector(".addedToCart").style.display = "none";
 }
 
 // start til at fjerne øl

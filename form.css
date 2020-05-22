@@ -10,16 +10,55 @@ body {
 }
 
 .title h1 {
+  font-family: sans-serif;
   color: white;
   text-align: center;
   margin-top: 20px;
   padding: 10px 0;
 }
 
+.addedToCart {
+  display: none;
+  position: fixed;
+  top: 5vw;
+  left: 74vw;
+  background-color: #1d1d1d;
+  width: 100px;
+  height: 50px;
+  border: 1px solid #bc86fc;
+  animation: cart 1s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.title p {
+  line-height: 50px;
+  font-family: sans-serif;
+  color: white;
+}
+
+@keyframes cart {
+  from {
+    opacity: 100;
+    left: 100vw;
+  }
+
+  to {
+    opacity: 0;
+    left: 75vw;
+  }
+}
+
 h2 {
+  font-family: sans-serif;
   margin-top: 5px;
   color: white;
   font-size: 1rem;
+}
+
+h4 {
+  font-family: sans-serif;
+
+  color: white;
+  font-size: 0.8rem;
 }
 
 .title {
@@ -103,6 +142,7 @@ h2 {
 
 #cart_wrapper h1 {
   color: white;
+  font-family: sans-serif;
 }
 
 .cart_left {
@@ -126,6 +166,7 @@ h2 {
 
 .total {
   margin-top: 20vh;
+  font-family: sans-serif;
 }
 
 .total h1 {
