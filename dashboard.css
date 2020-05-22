@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #111111;
+  background-color: var(--primary-color);
 }
 
 img {
@@ -14,7 +14,7 @@ img {
 }
 
 h1 {
-  color: white;
+  color: var(--font-color);
   opacity: 60%;
   font-size: 1.5rem;
   font-weight: 100;
@@ -25,11 +25,12 @@ h1 {
 .content {
   display: grid;
   grid-template-columns: 20vw 20vw 20vw 32vw;
-  grid-template-rows: 30vh 30vh 30vh;
+  grid-template-rows: 10vh 40vh 40vh;
   grid-template-areas:
+    "titel title title right"
     "queueBars queueBars queueLength right"
-    "bartenderStatus bartenderStatus bartenderStatus right"
-    "totalEarnings totalEarnings totalEarnings right";
+    "bartenderStatus bartenderStatus bartenderStatus right";
+  /* "totalEarnings totalEarnings totalEarnings right"; */
 
   column-gap: 20px;
   row-gap: 20px;
@@ -39,10 +40,109 @@ h1 {
 }
 
 .box {
-  border: black solid 2px;
-  background-color: #1d1d1d;
+  background-color: var(--secondary-color);
   padding: 15px;
+
+  -webkit-box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
+  -moz-box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
+  box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
 }
+
+.title {
+  display: flex;
+}
+
+.logo {
+  width: 120px;
+}
+
+/*** THEME CHANGER ***/
+
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+
+  /* em {
+    margin-left: 10px;
+    font-size: 1rem;
+  } */
+}
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+[data-theme="dark"] {
+  --primary-color: #111111;
+  --secondary-color: #1d1d1d;
+  --icon-color: #bc86fc;
+  --font-color: white;
+  --circle-bg: #222224;
+
+  --logo: url(icons/logoDark.png);
+}
+
+[data-theme="light"] {
+  --primary-color: white;
+  --secondary-color: white;
+  --icon-color: #631fee;
+  --font-color: black;
+  --circle-bg: ;
+
+  --logo: url(icons/logoLight.png);
+}
+
+/* [data-theme="party"] {
+  --primary-color: white;
+  --secondary-color: white;
+  --icon-color: ;
+
+  --font-color: black;
+} */
 
 /*** QUEUE CHART ***/
 
@@ -54,7 +154,7 @@ h1 {
 }
 
 #barParent {
-  background-color: #1d1d1d;
+  background-color: var(--secondary-color);
   display: flex;
   align-items: flex-end;
   height: 100%;
@@ -64,12 +164,13 @@ h1 {
 
 .bars {
   width: 3vw;
-  height: calc(var(--height) * 30px);
+  height: calc(var(--height) * 20px);
+  max-height: 200px;
   margin-left: 5px;
   margin-bottom: 10px;
-  border: #bc86fc solid;
+  border: var(--icon-color) solid;
   border-radius: 10px 10px 0px 0px;
-  background-color: #bc86fc;
+  background-color: var(--icon-color);
 }
 
 /*** QUEUE LENGTH ***/
@@ -82,7 +183,7 @@ h1 {
 } */
 
 .queueLength h2 {
-  color: white;
+  color: var(--font-color);
   text-align: end;
   font-size: 5rem;
   font-weight: 100;
@@ -109,7 +210,7 @@ h1 {
 .bartenderStatus h2,
 h3,
 h4 {
-  color: white;
+  color: var(--font-color);
   font-weight: 100;
 }
 
@@ -142,14 +243,14 @@ h4 {
 }
 
 /*** TOTAL EARNINGS ***/
-.totalEarnings {
+/* .totalEarnings {
   grid-area: totalEarnings;
 
   display: flex;
 }
 
 .totalEarnings h2 {
-  color: white;
+  color: var(--font-color);
   text-align: end;
   font-size: 3rem;
   font-weight: 100;
@@ -177,8 +278,8 @@ h4 {
 }
 
 .circular-chart.orange .circle_earnings {
-  stroke: #bc86fc;
-}
+  stroke: var(--icon-color);
+} */
 
 /***** BEER STORAGE ****/
 
@@ -201,7 +302,7 @@ h4 {
 
 .circle-bg {
   fill: none;
-  stroke: #222224;
+  stroke: var(--circle-bg);
   stroke-width: 3.8;
 }
 
@@ -220,11 +321,11 @@ h4 {
 }
 
 .circular-chart.orange .circle {
-  stroke: #bc86fc;
+  stroke: var(--icon-color);
 }
 
 .percentage {
-  fill: white;
+  fill: var(--font-color);
   font-family: sans-serif;
   font-size: 0.5em;
   font-weight: 100;
@@ -242,9 +343,9 @@ h4 {
   margin: auto;
   margin-left: 1px;
   margin-top: 3px;
-  border: #bc86fc solid;
+  border: var(--icon-color) solid;
   border-radius: 0px 10px 10px 0px;
-  background-color: #bc86fc;
+  background-color: var(--icon-color);
 }
 
 .storage_image img {
@@ -260,7 +361,7 @@ h4 {
 }
 
 #storage_parent h2 {
-  color: white;
+  color: var(--font-color);
   font-size: 1.2rem;
   font-weight: 100;
 }
