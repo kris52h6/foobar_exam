@@ -343,8 +343,7 @@ h4 {
 #storage_parent {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin-top: 5vw;
-  margin-left: 2vw;
+  margin-top: 2vw;
 }
 
 #storage_parent h2 {
