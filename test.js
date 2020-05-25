@@ -63,7 +63,7 @@ function beerStorage(queueJson) {
   for (let i = 0; i < queueJson.storage.length; i++) {
     // console.log(queueJson.storage[i].amount);
 
-    let beerBar = document.querySelector(`#storage_parent > div:nth-child(${i + 1}) > div.storage_bar`);
+    let beerBar = document.querySelector(`#storage_parent > div:nth-child(${i + 1}) > div.barParrent > div.storage_bar`);
 
     beerBar.style.setProperty("--width", queueJson.storage[i].amount);
   }
