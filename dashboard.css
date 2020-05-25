@@ -177,6 +177,7 @@ input:checked + .slider:before {
 /*** QUEUE LENGTH ***/
 .queueLength {
   grid-area: queueLength;
+  position: relative;
 }
 
 .queueLength h2 {
@@ -188,6 +189,8 @@ input:checked + .slider:before {
 
 .costumer_images {
   display: flex;
+  position: absolute;
+  bottom: 1rem;
 }
 
 .costumer_img img {
@@ -195,8 +198,15 @@ input:checked + .slider:before {
 }
 
 .costumer_img {
-  height: 20px;
-  width: 20px;
+  display: flex;
+  height: 40px;
+  width: 40px;
+  align-items: center;
+}
+
+.costumer_img p {
+  font-size: 1.5rem;
+  color: white;
 }
 
 /*** BARTENDER STATUS ***/

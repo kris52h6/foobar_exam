@@ -16,11 +16,28 @@ async function getJson(myJson) {
   //   console.log(myJson);
   //   console.log(myJson.queue.length);
 
-  document.querySelector("h2").textContent = +myJson.queue.length;
-
+  queueSize(myJson);
   bartenderStatus(myJson);
   //   beerStorage(myJson);
   // setHeights(myJson);
+}
+function queueSize(myJson) {
+  document.querySelector(".costumer_img").innerHTML = "";
+  document.querySelector("h2").textContent = +myJson.queue.length;
+
+  for (let i = 0; i < myJson.queue.length; i++) {
+    if (i < 5) {
+      const costumerImg = document.createElement("img");
+      costumerImg.src = "/icons/bartender.png";
+      document.querySelector(".costumer_img").appendChild(costumerImg);
+    }
+  }
+  if (myJson.queue.length > 5) {
+    const manyCostumers = document.createElement("p");
+    manyCostumers.textContent = "+";
+
+    document.querySelector(".costumer_img").appendChild(manyCostumers);
+  }
 }
 
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
