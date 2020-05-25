@@ -57,7 +57,6 @@ function beerCount(beertype, event) {
     name: beertype.name,
     amount: beerAmount,
   };
-
   cartArray.push(beerObject);
 
   localStorage.setItem("order", JSON.stringify(cartArray));
@@ -82,7 +81,14 @@ function displayCart(cartArray) {
   // console.log(orderParse[0].amount);
   // orderPrice = +orderParse[0].amount + +orderParse[1].amount;
   // console.log((orderPrice *= 50));
-  // document.querySelector("body > div.total > h2").textContent = orderPrice + " DKK";
+  console.log(orderParse);
+
+  let orderPrice = 0;
+  for (let i = 0; i < orderParse.length; i++) {
+    orderPrice = +orderParse[i].amount + orderPrice;
+  }
+  totalPrice = orderPrice * 49;
+  document.querySelector("body > div.total > h2").textContent = orderPrice * 49 + " DKK";
 
   // console.log(orderArray);
   orderParse.forEach((order) => {

@@ -97,6 +97,11 @@ h4 {
   height: 100%;
 }
 
+.quantity {
+  height: 20px;
+  margin-top: 30px;
+}
+
 .grid button {
   margin-top: 30px;
   width: 25px;
