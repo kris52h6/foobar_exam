@@ -131,7 +131,7 @@ input:checked + .slider:before {
   --secondary-color: white;
   --icon-color: #631fee;
   --font-color: black;
-  --circle-bg: ;
+  --circle-bg: #efefef;
 
   --logo: url(icons/logoLight.png);
 }
@@ -150,6 +150,7 @@ input:checked + .slider:before {
   grid-area: queueBars;
 
   display: flex;
+  /* flex-direction: column; */
   justify-content: center;
 }
 
@@ -305,6 +306,12 @@ h4 {
 
 .beer {
   padding: 10px;
+}
+
+.barParrent {
+  width: 100%;
+  background-color: var(--circle-bg);
+  border-radius: 0px 10px 10px 0px;
 }
 
 .storage_bar {
