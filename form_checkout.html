@@ -14,24 +14,27 @@
 
     <div id="form_wrap">
       <section id="subscribe_form">
-        <form action="test.html" method="POST">
+        <form>
+          <!-- <form action="test.html" method="POST"> -->
           <label for="name">CARDHOLDER NAME</label>
-          <input type="text" id="name" placeholder="John Doe" />
+          <input type="text" id="name" placeholder="John Doe" required />
 
           <label for="cardnumber">CARD NUMBER</label>
-          <input type="text" id="cardnumber" placeholder="1234 5678 3456 2456" />
+          <input type="text" id="cardnumber" placeholder="1234 5678 3456 2456" required />
 
           <div class="details_wrapper">
             <div class="tester">
               <label for="expire">Expire</label>
-              <input type="text" id="expire" placeholder="05 / 21" />
+              <input type="text" id="expire" placeholder="05 / 21" required />
             </div>
 
             <div class="tester2">
               <label for="cvc">CVC</label>
-              <input type="text" id="cvc" placeholder="123" />
+              <input type="text" id="cvc" placeholder="123" required />
             </div>
           </div>
+
+          <input type="submit" />
         </form>
       </section>
     </div>
@@ -45,11 +48,6 @@
         <div class="loading"></div>
         <div class="loading"></div>
       </div>
-    </div>
-
-    <div class="proceed checkout">
-      <a>Accept</a>
-      <a class="purchaseComplete">✔</a>
     </div>
   </body>
   <script src="form.js"></script>
