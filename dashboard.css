@@ -476,3 +476,28 @@ button:hover {
 .hidden {
   display: none;
 }
+
+.loading {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: white;
+  margin-top: 5px;
+  margin-left: 2px;
+  animation: dots 2s infinite;
+}
+
+.loadingbars {
+  display: flex;
+  justify-content: center;
+}
+
+.loading:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+@keyframes dots {
+  50% {
+    opacity: 0;
+  }
+}

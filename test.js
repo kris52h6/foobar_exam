@@ -82,19 +82,27 @@ function closeNav() {
   document.getElementById("mySidepanel").style.padding = "60px 0 0 0";
 }
 
+// FAKE LOGIN
 function subFunction() {
   const form = document.querySelector("form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (form.checkValidity()) {
       console.log("ready");
-      displaySetting();
+      valid();
     }
   });
 }
 
+function valid() {
+  document.querySelector("button p").classList.add("hidden");
+  document.querySelector(".loadContainer").style.display = "block";
+  setTimeout(displaySetting, 2000);
+}
+
 function displaySetting() {
   console.log("push");
+  document.querySelector(".loadContainer").classList.add("hidden");
   document.querySelector("form").classList.add("hidden");
   document.querySelector("#settings").style.display = "block";
 }

@@ -10,7 +10,7 @@
   <body data-theme="light">
     <section class="content">
       <div class="title">
-        <div class="logo"><img src="icons/light/logo_1.png" alt="FooBar logo" /></div>
+        <div class="logo"><img src="icons/light/logo.png" alt="FooBar logo" /></div>
       </div>
 
       <div id="mySidepanel" class="sidepanel">
@@ -25,7 +25,17 @@
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required />
 
-            <button type="submit">Login</button>
+            <button type="submit">
+              <p>Login</p>
+              <div class="loadContainer hidden">
+                <div class="loadingbars">
+                  <div class="loading"></div>
+                  <div class="loading"></div>
+                  <div class="loading"></div>
+                </div>
+              </div>
+            </button>
+
             <!-- <label> <input type="checkbox" checked="checked" name="remember" /> Remember me </label> -->
           </div>
           <!-- <button type="button" class="cancelbtn">Cancel</button> -->

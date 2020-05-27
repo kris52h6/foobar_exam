@@ -21,6 +21,7 @@ async function getJson(myJson) {
   //   beerStorage(myJson);
   // setHeights(myJson);
 }
+
 function queueSize(myJson) {
   let tema = document.querySelector("body").dataset.theme;
 
