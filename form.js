@@ -35,7 +35,9 @@ function displayBeers(minJson) {
     minJson.forEach((beertype) => {
       const klon = skabelon.cloneNode(true).content;
       klon.querySelector(".name").textContent = beertype.name;
+
       klon.querySelector("button").id = taeller;
+
       klon.querySelector("button").addEventListener("click", (event) => {
         addedToCart();
         beerCount(beertype, event);
