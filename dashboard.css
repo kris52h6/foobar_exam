@@ -134,6 +134,7 @@ input:checked + .slider:before {
   --circle-bg: #222224;
 
   --settings: url(icons/settingsDark.png);
+  --settings-inv: url(icons/settingsDarkInv.png);
 
   --logo: url(icons/logoDark.png);
 }
@@ -146,6 +147,7 @@ input:checked + .slider:before {
   --circle-bg: #efefef;
 
   --settings: url(icons/settingsLight.png);
+  --settings-inv: url(icons/settingsDark.png);
 
   --logo: url(icons/logoLight.png);
 }
@@ -416,10 +418,25 @@ h4 {
   cursor: pointer;
   color: white;
   padding: 10px 15px;
+  height: 40px;
+  width: 40px;
+  background-image: var(--settings);
+  background-size: 100%;
 }
 
 .openbtn:hover {
-  background-color: #444;
+  height: 40px;
+  width: 40px;
+  background-image: var(--settings-inv);
+  background-size: 100%;
+
+  animation: rotate 1s;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(180deg);
+  }
 }
 
 /* Full-width inputs */
