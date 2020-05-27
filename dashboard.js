@@ -22,13 +22,15 @@ async function getJson(myJson) {
   // setHeights(myJson);
 }
 function queueSize(myJson) {
+  let tema = document.querySelector("body").dataset.theme;
+
   document.querySelector(".costumer_img").innerHTML = "";
   document.querySelector("h2").textContent = +myJson.queue.length;
 
   for (let i = 0; i < myJson.queue.length; i++) {
     if (i < 5) {
       const costumerImg = document.createElement("img");
-      costumerImg.src = "/icons/bartender.png";
+      costumerImg.src = "icons/" + tema + "/queueMan.png";
       document.querySelector(".costumer_img").appendChild(costumerImg);
     }
   }

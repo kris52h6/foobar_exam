@@ -70,3 +70,11 @@ function beerStorage(queueJson) {
 
   //   console.log(queueJson.storage.length);
 }
+
+function openNav() {
+  document.getElementById("mySidepanel").style.width = "35vw";
+}
+
+function closeNav() {
+  document.getElementById("mySidepanel").style.width = "0";
+}

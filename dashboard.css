@@ -206,7 +206,7 @@ input:checked + .slider:before {
 
 .costumer_img p {
   font-size: 1.5rem;
-  color: white;
+  color: var(--font-color);
 }
 
 /*** BARTENDER STATUS ***/
