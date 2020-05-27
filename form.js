@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", init);
 const beerURL = "https://kristian-victor-foobar.herokuapp.com/beertypes";
 let cartArray = [];
 let cartlist = document.querySelector(".cartlist");
-let testCheck = document.querySelector("body > div.proceed.checkout");
+let testCheck = document.querySelector("form");
 // const endpoint = "http://kristian-victor-foobar.herokuapp.com/order";
 
 function init() {
@@ -105,19 +105,24 @@ function displayCart(cartArray) {
 }
 
 function postFunction() {
+  const form = document.querySelector("form");
   let currentOrder = localStorage.getItem("order");
   let orderParse = JSON.parse(currentOrder);
   console.log(orderParse);
+  // document.querySelector("body > div.proceed.checkout").addEventListener("click", () => {
+  // form.setAttribute("novalidate", true);
 
-  document.querySelector("body > div.proceed.checkout").addEventListener("click", () => {
-    // postBeer([
-    //   {
-    //     name: orderParse[1].name,
-    //     amount: orderParse[1].amount,
-    //   },
-    // ]);
-    postBeer(orderParse);
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (form.checkValidity()) {
+      console.log("ready");
+      postBeer(orderParse);
+    }
   });
+
+  // document.querySelector("#subscribe_form > form > div > input[type=submit]").addEventListener("click", () => {
+  //   postBeer(orderParse);
+  // });
 }
 
 function postBeer(orderParse) {
@@ -140,10 +145,8 @@ function postBeer(orderParse) {
 }
 
 function purchaseDone() {
-  document.querySelector("body > div.proceed.checkout > a").style.display = "none";
   document.querySelector("#form_wrap").style.display = "none";
   document.querySelector(".purchaseModal").style.display = "block";
-  document.querySelector(".purchaseComplete").style.display = "block";
 
   setInterval(() => {
     redirectURL();
