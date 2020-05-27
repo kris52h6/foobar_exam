@@ -16,20 +16,32 @@
         <div class="cart_left">
           <h1></h1>
         </div>
+
         <div class="cart_right">
-          <h2></h2>
+          <div class="wrapper">
+            <h2></h2>
+          </div>
+          <button class="remove">-</button>
         </div>
       </section>
     </template>
     <section class="cartlist"></section>
+    <div class="purchaseModal">
+      <h1>Please add a product to cart first.</h1>
+      <div class="loadingbars">
+        <h2>Redirecting to beers</h2>
+
+        <div class="loading"></div>
+        <div class="loading"></div>
+        <div class="loading"></div>
+      </div>
+    </div>
     <div class="total">
       <h1>Total:</h1>
       <h2></h2>
     </div>
 
-    <a href="form_checkout.html">
-      <button class="proceed">Checkout</button>
-    </a>
+    <button class="proceed">Checkout</button>
 
     <a href="form_beer.html">
       <button class="continue">Continue Shopping</button>

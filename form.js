@@ -4,6 +4,8 @@ const beerURL = "https://kristian-victor-foobar.herokuapp.com/beertypes";
 let cartArray = [];
 let cartlist = document.querySelector(".cartlist");
 let testCheck = document.querySelector("form");
+const element = document.querySelector(".cart_right");
+
 // const endpoint = "http://kristian-victor-foobar.herokuapp.com/order";
 
 function init() {
@@ -44,7 +46,7 @@ function displayBeers(minJson) {
       });
       taeller++;
 
-      klon.querySelector("img").src = "images/" + beertype.label;
+      klon.querySelector("img").src = "image/" + beertype.label;
       klon.querySelector("img").alt = beertype.label;
       modtagerKloner.appendChild(klon);
     });
@@ -60,7 +62,6 @@ function beerCount(beertype, event) {
     amount: beerAmount,
   };
   cartArray.push(beerObject);
-
   localStorage.setItem("order", JSON.stringify(cartArray));
 }
 
@@ -68,22 +69,13 @@ function displayCart(cartArray) {
   const skabelon = document.querySelector("template");
   cartlist.innerHTML = "";
   orderArray = [];
-
   let currentOrder = localStorage.getItem("order");
 
   let orderParse = JSON.parse(currentOrder);
-  // console.log(orderParse);
-  console.log(orderParse[0].name);
-  console.log(orderParse[0].amount);
 
-  // document.querySelector("body > div.proceed.checkout").addEventListener("click", () => {
-  //   console.log("test");
-  // });
-  // forsøg på at lave price count /
-  // console.log(orderParse[0].amount);
-  // orderPrice = +orderParse[0].amount + +orderParse[1].amount;
-  // console.log((orderPrice *= 50));
-  console.log(orderParse);
+  // console.log(orderParse);
+
+  // console.log(orderParse);
 
   let orderPrice = 0;
   for (let i = 0; i < orderParse.length; i++) {
@@ -98,12 +90,43 @@ function displayCart(cartArray) {
     klon.querySelector("h1").textContent = order.name;
     klon.querySelector("h2").textContent = order.amount;
 
-    // evt bruges til at fjerne øl
-    // klon.querySelector("h2").addEventListener("click", () => {
-    //   removeBeer(order);
-    // });
+    klon.querySelector(".remove").addEventListener("click", () => {
+      removeBeer(orderParse, order);
+    });
     cartlist.appendChild(klon);
   });
+
+  // console.log(orderParse.length);
+  // if (orderParse.length < 1) {
+  //   document.querySelector(".proceed").style.opacity = "50%";
+  if (orderParse.length >= 1) {
+    console.log(orderParse.length);
+    document.querySelector(".proceed").addEventListener("click", () => {
+      window.location.replace("form_checkout.html");
+    });
+  } else {
+    // document.querySelector(".proceed").removeEventListener("click");
+    console.log("test");
+  }
+}
+
+// start til at fjerne øl
+function removeBeer(orderParse, order) {
+  order.amount--;
+
+  for (let i = 0; i < orderParse.length; i++) {
+    let indexOf = orderParse.indexOf(orderParse[i]);
+    if (orderParse[i].amount < 1) {
+      orderParse.splice(indexOf, i);
+      if (indexOf == 0) {
+        orderParse.shift();
+      }
+    }
+  }
+
+  localStorage.setItem("order", JSON.stringify(orderParse));
+
+  displayCart(orderParse);
 }
 
 function postFunction() {
@@ -156,7 +179,7 @@ function purchaseDone() {
 }
 
 function redirectURL() {
-  window.location.replace("/form_beer.html");
+  window.location.replace("form_beer.html");
   localStorage.clear();
 }
 
@@ -171,28 +194,3 @@ function addedToCart() {
 function hideCart() {
   document.querySelector(".addedToCart").style.display = "none";
 }
-
-// start til at fjerne øl
-// function removeBeer(order) {
-//   console.log(order);
-//   order.amount--;
-
-//   console.log(order.amount);
-
-// }
-
-// function post(data) {
-//   //   showSubmit(data);
-//   const postData = JSON.stringify(data);
-//   fetch(endpoint, {
-//     method: "post",
-//     headers: {
-//       "Content-Type": "application/json; charset=utf-8",
-//       "x-apikey": apiKey,
-//       "cache-control": "no-cache",
-//     },
-//     body: postData,
-//   })
-//     .then((res) => res.json())
-//     .then((data) => console.log(data));
-// }
