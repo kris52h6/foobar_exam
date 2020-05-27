@@ -5,18 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
     <link rel="stylesheet" href="dashboard.css" />
+    <script src="https://kit.fontawesome.com/d96e005cec.js" crossorigin="anonymous"></script>
   </head>
   <body data-theme="light">
     <section class="content">
       <div class="title">
         <div class="logo"><img src="icons/light/logo_1.png" alt="FooBar logo" /></div>
       </div>
-      <div class="theme-switch-wrapper">
-        <label class="theme-switch" for="checkbox">
-          <input type="checkbox" id="checkbox" />
-          <div class="slider round"></div>
-        </label>
+
+      <div id="mySidepanel" class="sidepanel">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <form>
+          <!-- <form action="" method="post"> -->
+          <h3>Log in as admin to change settings</h3>
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required />
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required />
+
+            <button type="submit">Login</button>
+            <!-- <label> <input type="checkbox" checked="checked" name="remember" /> Remember me </label> -->
+          </div>
+          <!-- <button type="button" class="cancelbtn">Cancel</button> -->
+        </form>
+        <div id="settings" class="hidden">
+          <h1>Settings</h1>
+          <div class="setContainer">
+            <div class="setting">
+              <h3>Theme switch</h3>
+              <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                  <input type="checkbox" id="checkbox" />
+                  <div class="slider round"></div>
+                </label>
+              </div>
+            </div>
+            <div class="setting">
+              <h3>Theme switch</h3>
+              <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                  <input type="checkbox" id="checkbox" />
+                  <div class="slider round"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="settingButton">
+        <div class="openbtn" onclick="openNav()"><p>Settings</p></div>
+      </div>
+
       <div class="queueLength box">
         <h1>Costumers in queue:</h1>
         <h2></h2>

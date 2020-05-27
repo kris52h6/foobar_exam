@@ -7,6 +7,7 @@ let queueJson;
 
 function start() {
   getQueue();
+  subFunction();
 }
 
 async function getQueue(queueJson) {
@@ -73,8 +74,27 @@ function beerStorage(queueJson) {
 
 function openNav() {
   document.getElementById("mySidepanel").style.width = "35vw";
+  document.getElementById("mySidepanel").style.padding = "60px 20px 0 20px";
 }
 
 function closeNav() {
   document.getElementById("mySidepanel").style.width = "0";
+  document.getElementById("mySidepanel").style.padding = "60px 0 0 0";
+}
+
+function subFunction() {
+  const form = document.querySelector("form");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (form.checkValidity()) {
+      console.log("ready");
+      displaySetting();
+    }
+  });
+}
+
+function displaySetting() {
+  console.log("push");
+  document.querySelector("form").classList.add("hidden");
+  document.querySelector("#settings").style.display = "block";
 }

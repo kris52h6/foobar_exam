@@ -47,6 +47,7 @@ const currentTheme = localStorage.getItem("theme");
 
 if (currentTheme) {
   document.querySelector("body").setAttribute("data-theme", currentTheme);
+  document.querySelector(".logo img").src = "icons/" + currentTheme + "/logo.png";
 
   if (currentTheme === "dark") {
     toggleSwitch.checked = true;
@@ -56,11 +57,11 @@ if (currentTheme) {
 function switchTheme(e) {
   if (e.target.checked) {
     document.querySelector("body").setAttribute("data-theme", "dark");
-    document.querySelector(".logo img").src = "icons/dark/logo_2.png";
+    document.querySelector(".logo img").src = "icons/dark/logo.png";
     localStorage.setItem("theme", "dark");
   } else {
     document.querySelector("body").setAttribute("data-theme", "light");
-    document.querySelector(".logo img").src = "icons/light/logo_1.png";
+    document.querySelector(".logo img").src = "icons/light/logo.png";
     localStorage.setItem("theme", "light");
   }
 }
