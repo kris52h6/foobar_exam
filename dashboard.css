@@ -20,7 +20,7 @@ h1 {
 }
 
 p {
-  color: var(--font-color);
+  color: white;
   font-weight: 100;
 }
 
@@ -37,8 +37,8 @@ b {
   grid-template-rows: 10vh 40vh 40vh;
   grid-template-areas:
     "titel title switch right"
-    "queueBars queueBars queueLength right"
-    "bartenderStatus bartenderStatus bartenderStatus right";
+    "queueBars queueBars queueLength  right"
+    "nextOrder bartenderStatus bartenderStatus right";
   /* "totalEarnings totalEarnings totalEarnings right"; */
 
   column-gap: 20px;
@@ -225,6 +225,12 @@ input:checked + .slider:before {
   color: var(--font-color);
 }
 
+/*** NEXT ORDER ***/
+
+.nextOrder {
+  grid-area: nextOrder;
+}
+
 /*** BARTENDER STATUS ***/
 .bartenderStatus {
   grid-area: bartenderStatus;
@@ -241,7 +247,7 @@ h4 {
   /* margin-top: 20px; */
   margin: 20px 0 0px 20px;
 
-  width: 60vw;
+  width: 40vw;
   display: flex;
   justify-content: space-around;
 }
