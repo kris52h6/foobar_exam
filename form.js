@@ -4,6 +4,8 @@ const beerURL = "https://kristian-victor-foobar.herokuapp.com/beertypes";
 let cartArray = [];
 let cartlist = document.querySelector(".cartlist");
 let testCheck = document.querySelector("form");
+let totalAmount = [];
+
 const element = document.querySelector(".cart_right");
 
 // const endpoint = "http://kristian-victor-foobar.herokuapp.com/order";
@@ -41,7 +43,6 @@ function displayBeers(minJson) {
       klon.querySelector("button").id = taeller;
 
       klon.querySelector("button").addEventListener("click", (event) => {
-        addedToCart();
         beerCount(beertype, event);
       });
       taeller++;
@@ -57,19 +58,37 @@ function beerCount(beertype, event) {
   let beerAmount = document.querySelectorAll(".quantity")[event.target.id].value;
   console.log(beerAmount);
 
+  totalAmount.push(beerAmount);
+  console.log(totalAmount);
+
+  let orders = 0;
+  for (let i = 0; i < totalAmount.length; i++) {
+    orders = +totalAmount[i] + orders;
+  }
+  addedToCart(orders);
+
   let beerObject = {
     name: beertype.name,
     amount: beerAmount,
   };
   cartArray.push(beerObject);
+  // addedToCart(beerAmount);
+
   localStorage.setItem("order", JSON.stringify(cartArray));
 }
 
 function displayCart(cartArray) {
   const skabelon = document.querySelector("template");
   cartlist.innerHTML = "";
-  orderArray = [];
   let currentOrder = localStorage.getItem("order");
+  console.log(cartArray);
+
+  if (currentOrder == null) {
+    document.querySelector(".purchaseModal").style.display = "block";
+    document.querySelector(".proceed").style.display = "none";
+    document.querySelector(".continue").style.display = "none";
+    document.querySelector(".total").style.display = "none";
+  }
 
   let orderParse = JSON.parse(currentOrder);
 
@@ -84,7 +103,6 @@ function displayCart(cartArray) {
   totalPrice = orderPrice * 49;
   document.querySelector("body > div.total > h2").textContent = orderPrice * 49 + " DKK";
 
-  // console.log(orderArray);
   orderParse.forEach((order) => {
     const klon = skabelon.cloneNode(true).content;
     klon.querySelector("h1").textContent = order.name;
@@ -107,6 +125,10 @@ function displayCart(cartArray) {
   } else {
     // document.querySelector(".proceed").removeEventListener("click");
     console.log("test");
+    document.querySelector(".purchaseModal").style.display = "block";
+    document.querySelector(".proceed").style.display = "none";
+    document.querySelector(".continue").style.display = "none";
+    document.querySelector(".total").style.display = "none";
   }
 }
 
@@ -183,14 +205,6 @@ function redirectURL() {
   localStorage.clear();
 }
 
-function addedToCart() {
-  document.querySelector(".addedToCart").style.display = "block";
-
-  setInterval(() => {
-    hideCart();
-  }, 2000);
-}
-
-function hideCart() {
-  document.querySelector(".addedToCart").style.display = "none";
+function addedToCart(orders) {
+  document.querySelector("span").textContent = orders;
 }
