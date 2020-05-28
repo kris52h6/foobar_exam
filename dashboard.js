@@ -18,6 +18,8 @@ async function getJson(myJson) {
 
   queueSize(myJson);
   bartenderStatus(myJson);
+  nextQueue(myJson);
+
   //   beerStorage(myJson);
   // setHeights(myJson);
 }
@@ -90,12 +92,25 @@ toggleSwitch.addEventListener("change", switchTheme, false);
 
 //   count(myJson);
 // }
+const timestamp = require("time-stamp");
+function nextQueue(myJson) {
+  console.log(timestamp("HHMM"));
+
+  const cloneList = document.querySelector(".queueList");
+  const temp = document.querySelector(".nextOrder template");
+  cloneList.innerHTML = "";
+  myJson.queue.forEach((queue) => {
+    const clone = temp.cloneNode(true).content;
+    clone.querySelector("h3").textContent = queue.order[0];
+    cloneList.appendChild(clone);
+  });
+}
 
 function bartenderStatus(myJson) {
   //   console.log(myJson.bartenders[0].statusDetail);
 
   const modtagerKloner = document.querySelector(".bartenderList");
-  const skabelon = document.querySelector("template");
+  const skabelon = document.querySelector(".bartenderStatus template");
   modtagerKloner.innerHTML = "";
 
   if (modtagerKloner) {
