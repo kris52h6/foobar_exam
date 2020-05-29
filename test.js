@@ -106,3 +106,12 @@ function displaySetting() {
   document.querySelector("form").classList.add("hidden");
   document.querySelector("#settings").style.display = "block";
 }
+
+const fridayAfternoon = true;
+function snack() {
+  if (fridayAfternoon == true) {
+    alert("cheers mum");
+  } else {
+    alert(":(");
+  }
+}
