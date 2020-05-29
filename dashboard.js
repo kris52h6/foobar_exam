@@ -45,17 +45,9 @@ function queueSize(myJson) {
   }
 }
 
+// THEME SWITCHER
+
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-const currentTheme = localStorage.getItem("theme");
-
-if (currentTheme) {
-  document.querySelector("body").setAttribute("data-theme", currentTheme);
-  document.querySelector(".logo img").src = "icons/" + currentTheme + "/logo.png";
-
-  if (currentTheme === "dark") {
-    toggleSwitch.checked = true;
-  }
-}
 
 function switchTheme(e) {
   if (e.target.checked) {
@@ -70,6 +62,17 @@ function switchTheme(e) {
 }
 
 toggleSwitch.addEventListener("change", switchTheme, false);
+
+// Saves theme in local storage
+const currentTheme = localStorage.getItem("theme");
+if (currentTheme) {
+  document.querySelector("body").setAttribute("data-theme", currentTheme);
+  document.querySelector(".logo img").src = "icons/" + currentTheme + "/logo.png";
+
+  if (currentTheme === "dark") {
+    toggleSwitch.checked = true;
+  }
+}
 
 // function count(myJson) {
 //   let height = myJson.queue.length;

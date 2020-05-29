@@ -20,7 +20,6 @@ async function getQueue(queueJson) {
 
   // document.querySelector("h1").textContent = "Costumers in queue:" + " " + queueJson.queue.length;
 
-  // setHeights(queueJson);
   total(queueJson);
   setHeights(queueJson);
   beerStorage(queueJson);
@@ -37,7 +36,7 @@ function total(queueJson) {
   document.querySelector(".percentage").textContent = totalBeers + "%";
 }
 
-/*** COSTUMER CHART ***/
+// COSTUMER CHART
 function count(queueJson) {
   let height = queueJson.queue.length;
 
@@ -48,6 +47,7 @@ function count(queueJson) {
   setTimeout(getQueue, 10000);
 }
 
+// Queue bars
 function setHeights(queueJson) {
   for (let i = 0; i < costumerQueue.length; i++) {
     let bar = document.querySelector(`#barParent > div:nth-child(${i + 1})`);
@@ -58,20 +58,17 @@ function setHeights(queueJson) {
   count(queueJson);
 }
 
-/*** COSTUMER QUEUE IMAGES */
+// COSTUMER QUEUE IMAGES
 
 function beerStorage(queueJson) {
   for (let i = 0; i < queueJson.storage.length; i++) {
-    // console.log(queueJson.storage[i].amount);
-
     let beerBar = document.querySelector(`#storage_parent > div:nth-child(${i + 1}) > div.barParrent > div.storage_bar`);
 
     beerBar.style.setProperty("--width", queueJson.storage[i].amount);
   }
-
-  //   console.log(queueJson.storage.length);
 }
 
+// Settings button - open and close menu
 function openNav() {
   document.getElementById("mySidepanel").style.width = "35vw";
   document.getElementById("mySidepanel").style.padding = "60px 20px 0 20px";
@@ -106,6 +103,24 @@ function displaySetting() {
   document.querySelector("form").classList.add("hidden");
   document.querySelector("#settings").style.display = "block";
 }
+
+(function () {
+  function checkTime(i) {
+    return i < 10 ? "0" + i : i;
+  }
+
+  function startTime() {
+    var today = new Date(),
+      h = checkTime(today.getHours()),
+      m = checkTime(today.getMinutes()),
+      s = checkTime(today.getSeconds());
+    document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
+    t = setTimeout(function () {
+      startTime();
+    }, 500);
+  }
+  startTime();
+})();
 
 const fridayAfternoon = true;
 function snack() {
