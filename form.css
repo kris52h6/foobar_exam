@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: Roboto;
 }
 
 body {
@@ -9,8 +10,13 @@ body {
   margin-right: 15px;
 }
 
+.logo_stroke {
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
+
 .title h1 {
-  font-family: sans-serif;
   color: black;
   text-align: center;
   margin-top: 20px;
@@ -19,7 +25,6 @@ body {
 
 .title p {
   line-height: 50px;
-  font-family: sans-serif;
   color: white;
 }
 
@@ -36,14 +41,12 @@ body {
 }
 
 h2 {
-  font-family: sans-serif;
   margin-top: 5px;
 
   font-size: 1rem;
 }
 
 h4 {
-  font-family: sans-serif;
   opacity: 50%;
   font-size: 0.8rem;
 }
@@ -65,9 +68,9 @@ h4 {
   height: 20px;
   position: fixed;
   right: 4vw;
-  top: 6vw;
+  top: 30px;
   margin-top: 25px;
-  background-color: black;
+  background-color: #631fee;
   color: white;
   border-radius: 50%;
   text-align: center;
@@ -100,27 +103,52 @@ h4 {
   height: 100%;
 }
 
-.quantity {
-  height: 20px;
-  margin-top: 30px;
+.button {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.grid button {
+.quantity {
+  height: 24px;
+  width: 28px;
   margin-top: 30px;
-  width: 25px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.minus {
+  margin-top: 30px;
+  width: 28px;
+  height: 24px;
+  background-color: white;
+  border: 0.1px solid black;
+}
+
+.plus {
+  margin-top: 30px;
+  width: 28px;
+  height: 24px;
+  border: 0.1px solid black;
+}
+
+.grid .add {
+  margin-top: 30px;
+  width: 100px;
   height: 25px;
-  border-radius: 50%;
   background-color: #631fee;
+  border-radius: 5%;
   color: white;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   border: 0px;
   cursor: pointer;
 }
 
-.button {
+/* .quantiy_wrapper {
+  width: 100px;
   display: flex;
   justify-content: center;
-}
+} */
 
 .proceed {
   margin-top: 20px;
@@ -150,11 +178,6 @@ h4 {
   font-size: 1.2rem;
 }
 
-.plus {
-  width: 20px;
-  height: 20px;
-}
-
 /****** FORM CART *****/
 
 #cart_wrapper {
@@ -169,7 +192,6 @@ h4 {
 }
 
 #cart_wrapper h1 {
-  font-family: sans-serif;
   margin-left: 10px;
 }
 
@@ -212,7 +234,6 @@ h4 {
 
 .total {
   margin-top: 20vh;
-  font-family: sans-serif;
   text-align: right;
 }
 

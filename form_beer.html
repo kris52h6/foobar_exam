@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FooBar Form</title>
     <link rel="stylesheet" type="text/css" href="form.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div class="title">
       <h1>Beer</h1>
+      <div class="logo_stroke"></div>
 
       <a href="form_cart.html">
         <img src="icons/cart.png" />
@@ -29,10 +31,18 @@
         <h2 class="name"></h2>
         <h4 class="price">49DKK</h4>
         <div class="button">
-          <label for="quantity"></label>
-          <input type="number" class="quantity" name="quantity" min="1" max="9" value="1" />
+          <div class="quantiy_wrapper">
+            <label for="quantity"></label>
+            <button class="minus">-</button>
+            <!-- <input type="button" class="minus" min="1" max="9" value="-" /> -->
+            <input class="quantity" name="quantity" min="1" max="9" value="1" />
+            <!-- <input type="button" class="plus" min="1" max="9" value="+" /> -->
+            <button class="plus">+</button>
+          </div>
 
-          <button>+</button>
+          <div class="addcart_wrapper">
+            <button class="add">Add to cart</button>
+          </div>
         </div>
       </article>
     </template>
