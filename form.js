@@ -31,6 +31,8 @@ function displayBeers(minJson) {
   const modtagerKloner = document.querySelector(".beerlist");
   const skabelon = document.querySelector("template");
   let taeller = 0;
+  let taellerPlus = 0;
+  let taellerMinus = 0;
   // console.log(minJson);
 
   if (modtagerKloner) {
@@ -40,18 +42,50 @@ function displayBeers(minJson) {
       const klon = skabelon.cloneNode(true).content;
       klon.querySelector(".name").textContent = beertype.name;
 
-      klon.querySelector("button").id = taeller;
+      klon.querySelector(".add").id = taeller;
+      klon.querySelector(".plus").id = taellerPlus;
+      klon.querySelector(".minus").id = taellerMinus;
 
-      klon.querySelector("button").addEventListener("click", (event) => {
+      klon.querySelector(".minus").addEventListener("click", () => {
+        beerMinus();
+      });
+
+      klon.querySelector(".plus").addEventListener("click", () => {
+        beerPlus();
+      });
+      klon.querySelector(".add").addEventListener("click", (event) => {
+        beerPurchased(event);
         beerCount(beertype, event);
       });
       taeller++;
+      taellerPlus++;
+      taellerMinus++;
 
       klon.querySelector("img").src = "image/" + beertype.label;
       klon.querySelector("img").alt = beertype.label;
       modtagerKloner.appendChild(klon);
     });
   }
+}
+
+function beerMinus() {
+  if (document.querySelectorAll(".quantity")[event.target.id].value > 1) {
+    document.querySelectorAll(".quantity")[event.target.id].value--;
+  } else {
+  }
+}
+
+function beerPlus() {
+  document.querySelectorAll(".quantity")[event.target.id].value++;
+}
+
+function beerPurchased(event) {
+  document.querySelectorAll(".add")[event.target.id].textContent = "✔";
+
+  setTimeout(() => {
+    document.querySelectorAll(".add")[event.target.id].textContent = "Add to cart";
+    console.log("test");
+  }, 500);
 }
 
 function beerCount(beertype, event) {
@@ -61,6 +95,7 @@ function beerCount(beertype, event) {
   totalAmount.push(beerAmount);
   console.log(totalAmount);
 
+  // tæller det totale antal af bestillinger og kalder addedToCart
   let orders = 0;
   for (let i = 0; i < totalAmount.length; i++) {
     orders = +totalAmount[i] + orders;
@@ -205,6 +240,7 @@ function redirectURL() {
   localStorage.clear();
 }
 
+// viser antal bestillinger i kuren, på beer.html
 function addedToCart(orders) {
   document.querySelector("span").textContent = orders;
 }

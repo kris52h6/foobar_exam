@@ -92,9 +92,9 @@ toggleSwitch.addEventListener("change", switchTheme, false);
 
 //   count(myJson);
 // }
-const timestamp = require("time-stamp");
+// const timestamp = require("time-stamp");
 function nextQueue(myJson) {
-  console.log(timestamp("HHMM"));
+  // console.log(timestamp("HHMM"));
 
   const cloneList = document.querySelector(".queueList");
   const temp = document.querySelector(".nextOrder template");
