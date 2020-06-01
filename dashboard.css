@@ -34,9 +34,9 @@ b {
 .content {
   display: grid;
   grid-template-columns: 20vw 20vw 20vw 32vw;
-  grid-template-rows: 4vh 6vh 40vh 40vh;
+  grid-template-rows: 2vh 6vh 40vh 40vh;
   grid-template-areas:
-    "title title time switch"
+    "title title none switch"
     "title title time right"
     "queueBars queueBars queueLength  right"
     "nextOrder bartenderStatus bartenderStatus right";
@@ -65,6 +65,49 @@ b {
 
 .logo {
   width: 1000px;
+}
+
+.settingButton {
+  grid-area: switch;
+
+  display: flex;
+}
+
+#time {
+  color: var(--font-color);
+
+  font-size: 1.5rem;
+  font-weight: 100;
+  grid-area: time;
+}
+
+.openbtn {
+  /* font-size: 20px; */
+  cursor: pointer;
+  color: white;
+  padding: 10px 15px;
+  height: 30px;
+  width: 30px;
+  background-image: var(--settings);
+  background-size: 100%;
+  position: fixed;
+  right: 50px;
+  top: 10px;
+}
+
+.openbtn:hover {
+  height: 30px;
+  width: 30px;
+  background-image: var(--settings-inv);
+  background-size: 100%;
+
+  animation: rotate 1s;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(180deg);
+  }
 }
 
 /*** THEME CHANGER ***/
@@ -407,48 +450,6 @@ h4 {
   font-size: 36px;
 }
 
-.settingButton {
-  grid-area: switch;
-
-  display: flex;
-}
-
-#time {
-  color: var(--font-color);
-
-  font-size: 1.5rem;
-  font-weight: 100;
-  grid-area: time;
-}
-
-.openbtn {
-  /* font-size: 20px; */
-  cursor: pointer;
-  color: white;
-  padding: 10px 15px;
-  height: 30px;
-  width: 30px;
-  background-image: var(--settings);
-  background-size: 100%;
-  position: fixed;
-  right: 50px;
-}
-
-.openbtn:hover {
-  height: 30px;
-  width: 30px;
-  background-image: var(--settings-inv);
-  background-size: 100%;
-
-  animation: rotate 1s;
-}
-
-@keyframes rotate {
-  100% {
-    transform: rotate(180deg);
-  }
-}
-
 /* Full-width inputs */
 input[type="text"],
 input[type="password"] {
@@ -540,15 +541,19 @@ button:hover {
   .content {
     display: grid;
     grid-template-columns: 45vw 40vw;
-    grid-template-rows: 10vh 30vh 30vh 40vh;
+    grid-template-rows: 5vh 5vh 30vh 30vh 40vh;
     grid-template-areas:
-      "titel switch"
-      "queueBars  queueLength"
+      "title switch"
+      "time none"
+      "queueBars queueLength"
       "nextOrder nextOrder"
       "bartenderStatus bartenderStatus"
       "right right";
   }
 
+  .logo {
+    max-width: 200px;
+  }
   .settingButton {
     grid-area: switch;
   }
