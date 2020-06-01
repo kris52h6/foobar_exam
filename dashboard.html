@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="dashboard.css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/d96e005cec.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body data-theme="light">
     <section class="content">
@@ -17,16 +18,15 @@
       <div id="mySidepanel" class="sidepanel">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <form>
-          <!-- <form action="" method="post"> -->
           <h3>Log in as admin to change settings</h3>
           <div class="container">
             <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required />
+            <input id="username" type="text" placeholder="Enter Username" name="uname" required />
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required />
+            <input id="password" type="password" placeholder="Enter Password" name="psw" required />
 
-            <button type="submit">
+            <button type="submit" id="submit">
               <p>Login</p>
               <div class="loadContainer hidden">
                 <div class="loadingbars">
@@ -36,11 +36,22 @@
                 </div>
               </div>
             </button>
-
-            <!-- <label> <input type="checkbox" checked="checked" name="remember" /> Remember me </label> -->
+            <p class="valid">Valid. Please wait a moment.</p>
+            <p class="error">Error. Please enter correct Username &amp; password.</p>
           </div>
-          <!-- <button type="button" class="cancelbtn">Cancel</button> -->
         </form>
+
+        <!-- <section class="form animated flipInX">
+          <h2>Login To Your Account</h2>
+          <p class="valid">Valid. Please wait a moment.</p>
+          <p class="error">Error. Please enter correct Username &amp; password.</p>
+          <form class="loginbox" autocomplete="off">
+            <input placeholder="Username" type="text" id="username"></input>
+            <input placeholder="Password" type="password" id="password"></input>
+        <button id="submit">Login</button>
+        </form>
+        </section> -->
+
         <div id="settings" class="hidden">
           <h1>Settings</h1>
           <div class="setContainer">

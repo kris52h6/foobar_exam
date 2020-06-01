@@ -7,7 +7,7 @@ let queueJson;
 
 function start() {
   getQueue();
-  subFunction();
+  // subFunction();
 }
 
 async function getQueue(queueJson) {
@@ -80,16 +80,37 @@ function closeNav() {
 }
 
 // FAKE LOGIN
-function subFunction() {
-  const form = document.querySelector("form");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    if (form.checkValidity()) {
-      console.log("ready");
+// function subFunction() {
+//   const form = document.querySelector("form");
+//   form.addEventListener("submit", (e) => {
+//     e.preventDefault();
+//     if (form.checkValidity()) {
+//       console.log("ready");
+//       valid();
+//     }
+//   });
+// }
+
+// JQuery fake login solution:
+$(document).ready(function () {
+  //$('#username').focus();
+
+  $("#submit").click(function () {
+    event.preventDefault(); // prevent PageReLoad
+
+    var ValidEmail = $("#username").val() === "test"; // User validate
+    var ValidPassword = $("#password").val() === "test"; // Password validate
+
+    if (ValidEmail === true && ValidPassword === true) {
+      // if ValidEmail & ValidPassword
+      $(".valid").css("display", "block");
+      $(".error").css("display", "none"); // show error msg
       valid();
+    } else {
+      $(".error").css("display", "block"); // show error msg
     }
   });
-}
+});
 
 function valid() {
   document.querySelector("button p").classList.add("hidden");
