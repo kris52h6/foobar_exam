@@ -29,7 +29,11 @@
 
 //   costumerQueue.push(height);
 
-//   costumerQueue.shift();
+// Queue bars
+function setHeights(queueJson) {
+  for (let i = 0; i < costumerQueue.length; i++) {
+    let bar = document.querySelector(`#barParent > div:nth-child(${i + 1})`);
+    document.querySelector(`#barParent > div:nth-child(${i + 1}) > p`).textContent = costumerQueue[i];
 
 //   setTimeout(getQueue, 10000);
 // }
