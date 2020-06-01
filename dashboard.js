@@ -13,8 +13,11 @@ async function getJson(myJson) {
   queueSize(myJson);
   bartenderStatus(myJson);
   nextQueue(myJson);
+  total(myJson);
+  beerStorage(myJson);
 }
 
+// CUSTOMERS IN QUEUE
 function queueSize(myJson) {
   let tema = document.querySelector("body").dataset.theme;
 
@@ -36,35 +39,7 @@ function queueSize(myJson) {
   }
 }
 
-// THEME SWITCHER
-
-const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-
-function switchTheme(e) {
-  if (e.target.checked) {
-    document.querySelector("body").setAttribute("data-theme", "dark");
-    document.querySelector(".logo img").src = "icons/dark/logo.png";
-    localStorage.setItem("theme", "dark");
-  } else {
-    document.querySelector("body").setAttribute("data-theme", "light");
-    document.querySelector(".logo img").src = "icons/light/logo.png";
-    localStorage.setItem("theme", "light");
-  }
-}
-
-toggleSwitch.addEventListener("change", switchTheme, false);
-
-// Saves theme in local storage
-const currentTheme = localStorage.getItem("theme");
-if (currentTheme) {
-  document.querySelector("body").setAttribute("data-theme", currentTheme);
-  document.querySelector(".logo img").src = "icons/" + currentTheme + "/logo.png";
-
-  if (currentTheme === "dark") {
-    toggleSwitch.checked = true;
-  }
-}
-
+// NEXT ORDER
 function nextQueue(myJson) {
   const cloneList = document.querySelector(".queueList");
   const temp = document.querySelector(".nextOrder template");
@@ -76,6 +51,7 @@ function nextQueue(myJson) {
   });
 }
 
+//BARTENDER STATUS
 function bartenderStatus(myJson) {
   const modtagerKloner = document.querySelector(".bartenderList");
   const skabelon = document.querySelector(".bartenderStatus template");
@@ -129,5 +105,25 @@ function bartenderStatus(myJson) {
 
       modtagerKloner.appendChild(klon);
     });
+  }
+}
+
+// STORAGE
+function total(myJson) {
+  let totalBeers = myJson.storage.reduce((accum, item) => accum + item.amount, 0);
+
+  console.log("total beers:" + totalBeers);
+
+  let circle = document.querySelector(".circle");
+  circle.style.setProperty("--stroke", totalBeers);
+
+  document.querySelector(".percentage").textContent = totalBeers + "%";
+}
+
+function beerStorage(myJson) {
+  for (let i = 0; i < myJson.storage.length; i++) {
+    let beerBar = document.querySelector(`#storage_parent > div:nth-child(${i + 1}) > div.barParrent > div.storage_bar`);
+
+    beerBar.style.setProperty("--width", myJson.storage[i].amount);
   }
 }

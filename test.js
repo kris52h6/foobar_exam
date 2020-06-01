@@ -1,72 +1,49 @@
-document.addEventListener("DOMContentLoaded", start);
+// document.addEventListener("DOMContentLoaded", start);
 
-const costumerQueue = [];
-costumerQueue.length = 8;
+// const costumerQueue = [];
+// costumerQueue.length = 8;
 
-let queueJson;
+// let myJson;
 
-function start() {
-  getQueue();
-  // subFunction();
-}
+// function start() {
+//   getQueue();
+//   // subFunction();
+// }
 
-async function getQueue(queueJson) {
-  // console.log("hent json");
-  let jsonData = await fetch("https://kristian-victor-foobar.herokuapp.com/");
-  queueJson = await jsonData.json();
+// async function getQueue(queueJson) {
+//   // console.log("hent json");
+//   let jsonData = await fetch("https://kristian-victor-foobar.herokuapp.com/");
+//   queueJson = await jsonData.json();
 
-  // console.log(queueJson);
-  // console.log(queueJson.queue.length);
+//   // console.log(queueJson);
+//   // console.log(queueJson.queue.length);
 
-  // document.querySelector("h1").textContent = "Costumers in queue:" + " " + queueJson.queue.length;
+//   // document.querySelector("h1").textContent = "Costumers in queue:" + " " + queueJson.queue.length;
 
-  total(queueJson);
-  setHeights(queueJson);
-  beerStorage(queueJson);
-}
+//   setHeights(queueJson);
+// }
 
-function total(queueJson) {
-  let totalBeers = queueJson.storage.reduce((accum, item) => accum + item.amount, 0);
+// // COSTUMER CHART
+// function count(queueJson) {
+//   let height = queueJson.queue.length;
 
-  console.log("total beers:" + totalBeers);
+//   costumerQueue.push(height);
 
-  let circle = document.querySelector(".circle");
-  circle.style.setProperty("--stroke", totalBeers);
+//   costumerQueue.shift();
 
-  document.querySelector(".percentage").textContent = totalBeers + "%";
-}
+//   setTimeout(getQueue, 10000);
+// }
 
-// COSTUMER CHART
-function count(queueJson) {
-  let height = queueJson.queue.length;
+// // Queue bars
+// function setHeights(queueJson) {
+//   for (let i = 0; i < costumerQueue.length; i++) {
+//     let bar = document.querySelector(`#barParent > div:nth-child(${i + 1})`);
 
-  costumerQueue.push(height);
+//     bar.style.setProperty("--height", costumerQueue[i]);
+//   }
 
-  costumerQueue.shift();
-
-  setTimeout(getQueue, 10000);
-}
-
-// Queue bars
-function setHeights(queueJson) {
-  for (let i = 0; i < costumerQueue.length; i++) {
-    let bar = document.querySelector(`#barParent > div:nth-child(${i + 1})`);
-
-    bar.style.setProperty("--height", costumerQueue[i]);
-  }
-
-  count(queueJson);
-}
-
-// COSTUMER QUEUE IMAGES
-
-function beerStorage(queueJson) {
-  for (let i = 0; i < queueJson.storage.length; i++) {
-    let beerBar = document.querySelector(`#storage_parent > div:nth-child(${i + 1}) > div.barParrent > div.storage_bar`);
-
-    beerBar.style.setProperty("--width", queueJson.storage[i].amount);
-  }
-}
+//   count(queueJson);
+// }
 
 // Settings button - open and close menu
 function openNav() {
