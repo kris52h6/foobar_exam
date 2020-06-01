@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", init);
 const beerURL = "https://kristian-victor-foobar.herokuapp.com/beertypes";
 let cartArray = [];
 let cartlist = document.querySelector(".cartlist");
-let testCheck = document.querySelector("form");
+let formCheck = document.querySelector("form");
+
 let totalAmount = [];
 
 // const endpoint = "http://kristian-victor-foobar.herokuapp.com/order";
@@ -14,7 +15,7 @@ function init() {
     displayCart();
   }
 
-  if (testCheck) {
+  if (formCheck) {
     postFunction();
   }
 }
@@ -77,23 +78,20 @@ function beerPlus() {
   document.querySelectorAll(".quantity")[event.target.id].value++;
 }
 
+// laver flueben når man trykker på .add knappenøøøø
 function beerAdded(event) {
   document.querySelectorAll(".add")[event.target.id].textContent = "✔";
   document.querySelector("span > p").classList.add("numberInCart");
   setTimeout(() => {
     document.querySelectorAll(".add")[event.target.id].textContent = "Add to cart";
     document.querySelector("span > p").classList.remove("numberInCart");
-
-    console.log("test");
   }, 500);
 }
 
 function beerCount(beertype, event) {
   let beerAmount = document.querySelectorAll(".quantity")[event.target.id].value;
-  console.log(beerAmount);
 
   totalAmount.push(beerAmount);
-  console.log(totalAmount);
 
   // tæller det totale antal af bestillinger og kalder addedToCart
   let orders = 0;
@@ -102,22 +100,65 @@ function beerCount(beertype, event) {
   }
   addedToCart(orders);
 
-  let beerObject = {
-    name: beertype.name,
-    amount: beerAmount,
-  };
-  cartArray.push(beerObject);
-  // addedToCart(beerAmount);
+  let currenntId = cartArray.findIndex((x) => x.name === beertype.name);
+  console.log(currenntId);
+  console.log(cartArray);
+  if (currenntId !== -1) {
+    cartArray[currenntId].amount = parseInt(beerAmount) + parseInt(cartArray[currenntId].amount);
+  } else {
+    let beerObject = {
+      name: beertype.name,
+      amount: beerAmount,
+    };
+    cartArray.push(beerObject);
+    // addedToCart(beerAmount);
+  }
 
+  // let fundet = false;
+  // for (let i = 0; i < cartArray.length; i++) {
+  //   if (cartArray[i].name == "El Hefe") {
+  //     fundet = true;
+  //     console.log(fundet);
+  //   }
+  // }
+
+  // if (cartArray.includes.name) {
+  //   console.log(beertype.name);
+  //   console.log("ja");
+  // }
+
+  console.log(cartArray);
+  // if (cartArray.length > 1) {
+  // for (let i = 0; i < cartArray.length; i++) {
+  //   if (cartArray[i].name === beerObject.name) {
+  //     console.log(cartArray[i].amount);
+  //     console.log(beerObject.amount);
+
+  //     console.log(name);
+  //     console.log("ja");
+  //     return cartArray[i];
+  //   }
+
+  //   cartArray.push(beerObject);
+  // }
+
+  // for (let i = 0; i < cartArray.length; i++) {
+  //   if ((cartArray[i].name = cartArray[i].name)) {
+  //     console.log(cartArray[i].name);
+  //   }
+  // }
+
+  // stringify'er cartArray og sætter localStorage til at være værdien af det.
   localStorage.setItem("order", JSON.stringify(cartArray));
 }
 
 function displayCart(cartArray) {
   const skabelon = document.querySelector("template");
   cartlist.innerHTML = "";
+  // henter ordren fra localStorage på "cart" siden
   let currentOrder = localStorage.getItem("order");
-  console.log(cartArray);
 
+  // hvis der ingen ordre er, fjerner den evnen til at gå videre til checkout
   if (currentOrder == null) {
     document.querySelector(".purchaseModal").style.display = "block";
     document.querySelector(".proceed").style.display = "none";
@@ -192,11 +233,26 @@ function postFunction() {
   // document.querySelector("body > div.proceed.checkout").addEventListener("click", () => {
   // form.setAttribute("novalidate", true);
 
+  // form.addEventListener("submit", (e) => {
+  //   e.preventDefault();
+  //   if (form.checkValidity()) {
+  //     console.log("ready");
+  //     postBeer(orderParse);
+  //   }
+  // });
+
+  const pristine = new Pristine(form);
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (form.checkValidity()) {
-      console.log("ready");
+
+    let valid = pristine.validate();
+    let cardnumber = document.getElementById("cardnumber");
+
+    if (valid) {
+      console.log("valid");
       postBeer(orderParse);
+    } else {
+      console.log("invalid");
     }
   });
 }
