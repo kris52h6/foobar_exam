@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", start);
 
 const costumerQueue = [];
-costumerQueue.length = 8;
+costumerQueue.length = 11;
 
 function start() {
   getQueue();
