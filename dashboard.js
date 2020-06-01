@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", start);
 
-// let costumerQueue = [];
-// costumerQueue.length = 8;
-
 function start() {
   setInterval(() => {
     getJson();
@@ -13,15 +10,9 @@ async function getJson(myJson) {
   let jsonData = await fetch("https://kristian-victor-foobar.herokuapp.com/");
   myJson = await jsonData.json();
 
-  //   console.log(myJson);
-  //   console.log(myJson.queue.length);
-
   queueSize(myJson);
   bartenderStatus(myJson);
   nextQueue(myJson);
-
-  //   beerStorage(myJson);
-  // setHeights(myJson);
 }
 
 function queueSize(myJson) {
@@ -74,30 +65,6 @@ if (currentTheme) {
   }
 }
 
-// function count(myJson) {
-//   let height = myJson.queue.length;
-
-//   costumerQueue.push(height);
-
-//   costumerQueue.shift();
-
-//   setTimeout(getJson, 10000);
-// }
-
-// function setHeights(myJson) {
-//   console.log(myJson);
-
-//   for (let i = 0; i < costumerQueue.length; i++) {
-//     let bar = document.querySelector(`#barParent > div:nth-child(${i + 1})`);
-
-//     bar.style.setProperty("--height", costumerQueue[i]);
-//   }
-
-//   count(myJson);
-// }
-// const timestamp = require("time-stamp");
-// console.log(timestamp("HHMM"));
-
 function nextQueue(myJson) {
   const cloneList = document.querySelector(".queueList");
   const temp = document.querySelector(".nextOrder template");
@@ -110,8 +77,6 @@ function nextQueue(myJson) {
 }
 
 function bartenderStatus(myJson) {
-  //   console.log(myJson.bartenders[0].statusDetail);
-
   const modtagerKloner = document.querySelector(".bartenderList");
   const skabelon = document.querySelector(".bartenderStatus template");
   modtagerKloner.innerHTML = "";
@@ -161,8 +126,6 @@ function bartenderStatus(myJson) {
         klon.querySelector("h4").textContent = "Waiting";
         klon.querySelector(".icons>.smallIcon>.icon").src = "icons/" + tema + "/waiting.png";
       }
-
-      //   klon.querySelector("h4").textContent = bartender.statusDetail;
 
       modtagerKloner.appendChild(klon);
     });

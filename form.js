@@ -6,8 +6,6 @@ let cartlist = document.querySelector(".cartlist");
 let testCheck = document.querySelector("form");
 let totalAmount = [];
 
-const element = document.querySelector(".cart_right");
-
 // const endpoint = "http://kristian-victor-foobar.herokuapp.com/order";
 
 function init() {
@@ -54,7 +52,7 @@ function displayBeers(minJson) {
         beerPlus();
       });
       klon.querySelector(".add").addEventListener("click", (event) => {
-        beerPurchased(event);
+        beerAdded(event);
         beerCount(beertype, event);
       });
       taeller++;
@@ -79,11 +77,13 @@ function beerPlus() {
   document.querySelectorAll(".quantity")[event.target.id].value++;
 }
 
-function beerPurchased(event) {
+function beerAdded(event) {
   document.querySelectorAll(".add")[event.target.id].textContent = "✔";
-
+  document.querySelector("span > p").classList.add("numberInCart");
   setTimeout(() => {
     document.querySelectorAll(".add")[event.target.id].textContent = "Add to cart";
+    document.querySelector("span > p").classList.remove("numberInCart");
+
     console.log("test");
   }, 500);
 }
@@ -127,10 +127,6 @@ function displayCart(cartArray) {
 
   let orderParse = JSON.parse(currentOrder);
 
-  // console.log(orderParse);
-
-  // console.log(orderParse);
-
   let orderPrice = 0;
   for (let i = 0; i < orderParse.length; i++) {
     orderPrice = +orderParse[i].amount + orderPrice;
@@ -149,16 +145,13 @@ function displayCart(cartArray) {
     cartlist.appendChild(klon);
   });
 
-  // console.log(orderParse.length);
-  // if (orderParse.length < 1) {
-  //   document.querySelector(".proceed").style.opacity = "50%";
   if (orderParse.length >= 1) {
     console.log(orderParse.length);
     document.querySelector(".proceed").addEventListener("click", () => {
       window.location.replace("form_checkout.html");
     });
-  } else {
-    // document.querySelector(".proceed").removeEventListener("click");
+  } // fjerner hele cart displayet, hvis længden af orderparse er under 1
+  else {
     console.log("test");
     document.querySelector(".purchaseModal").style.display = "block";
     document.querySelector(".proceed").style.display = "none";
@@ -167,25 +160,30 @@ function displayCart(cartArray) {
   }
 }
 
-// start til at fjerne øl
+// fjerner øl fra kurven
 function removeBeer(orderParse, order) {
   order.amount--;
 
   for (let i = 0; i < orderParse.length; i++) {
     let indexOf = orderParse.indexOf(orderParse[i]);
+    // fjerner øllen fra array'et afhængig af hvilket nummer den man trykker på har i array'et
     if (orderParse[i].amount < 1) {
       orderParse.splice(indexOf, i);
+      // hvis øllen prøver at fjerne er indexOf == 0, fjerner den den første øl fra array'et
       if (indexOf == 0) {
         orderParse.shift();
       }
     }
   }
 
+  // sætter ordrende i localStorage til at være det nye antal øl
   localStorage.setItem("order", JSON.stringify(orderParse));
 
+  // kalder displayCart igen, for at visuelt opdatere det antal øl man har i kurven
   displayCart(orderParse);
 }
 
+// henter ordren fra local storage, og tilføjer click på accept knappen, som kalder postBeer
 function postFunction() {
   const form = document.querySelector("form");
   let currentOrder = localStorage.getItem("order");
@@ -201,12 +199,9 @@ function postFunction() {
       postBeer(orderParse);
     }
   });
-
-  // document.querySelector("#subscribe_form > form > div > input[type=submit]").addEventListener("click", () => {
-  //   postBeer(orderParse);
-  // });
 }
 
+// poster data fra localStorage (som er kundens køb)
 function postBeer(orderParse) {
   console.log(orderParse);
   const postData = JSON.stringify(orderParse);
@@ -226,6 +221,8 @@ function postBeer(orderParse) {
   purchaseDone();
 }
 
+// når brugeren trykker "accept" i formen, bliver .purchaseModal vist, som siger tak for købet
+// og kalder funktionen som redirecter dem tilbage til forsiden
 function purchaseDone() {
   document.querySelector("#form_wrap").style.display = "none";
   document.querySelector(".purchaseModal").style.display = "block";
@@ -235,6 +232,7 @@ function purchaseDone() {
   }, 4000);
 }
 
+// redirecter tilbage til forsiden
 function redirectURL() {
   window.location.replace("form_beer.html");
   localStorage.clear();
@@ -242,5 +240,5 @@ function redirectURL() {
 
 // viser antal bestillinger i kuren, på beer.html
 function addedToCart(orders) {
-  document.querySelector("span").textContent = orders;
+  document.querySelector("span > p").textContent = orders;
 }

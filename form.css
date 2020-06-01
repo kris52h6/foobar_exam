@@ -24,7 +24,7 @@ body {
 }
 
 .title p {
-  line-height: 50px;
+  /* line-height: 50px; */
   color: white;
 }
 
@@ -74,7 +74,21 @@ h4 {
   color: white;
   border-radius: 50%;
   text-align: center;
-  animation: purchase 1s linear;
+  /* animation: purchase 1s linear; */
+}
+
+.numberInCart {
+  animation: cart_kf 1s ease;
+}
+
+@keyframes cart_kf {
+  from {
+    transform: scale(2);
+  }
+
+  to {
+    transform: scale(1);
+  }
 }
 
 .grid {
@@ -133,7 +147,7 @@ h4 {
 }
 
 .grid .add {
-  margin-top: 30px;
+  margin-top: 5px;
   width: 100px;
   height: 25px;
   background-color: #631fee;
