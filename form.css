@@ -303,8 +303,8 @@ input[type="email"] {
   animation: dissappear 1s linear;
 }
 
-input[type="text"]:hover {
-}
+/* input[type="text"]:hover {
+} */
 
 input[type="submit"] {
   cursor: pointer;

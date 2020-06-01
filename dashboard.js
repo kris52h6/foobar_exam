@@ -36,17 +36,9 @@ function queueSize(myJson) {
   }
 }
 
+// THEME SWITCHER
+
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-const currentTheme = localStorage.getItem("theme");
-
-if (currentTheme) {
-  document.querySelector("body").setAttribute("data-theme", currentTheme);
-  document.querySelector(".logo img").src = "icons/" + currentTheme + "/logo.png";
-
-  if (currentTheme === "dark") {
-    toggleSwitch.checked = true;
-  }
-}
 
 function switchTheme(e) {
   if (e.target.checked) {
@@ -62,10 +54,18 @@ function switchTheme(e) {
 
 toggleSwitch.addEventListener("change", switchTheme, false);
 
-// const timestamp = require("time-stamp");
-function nextQueue(myJson) {
-  // console.log(timestamp("HHMM"));
+// Saves theme in local storage
+const currentTheme = localStorage.getItem("theme");
+if (currentTheme) {
+  document.querySelector("body").setAttribute("data-theme", currentTheme);
+  document.querySelector(".logo img").src = "icons/" + currentTheme + "/logo.png";
 
+  if (currentTheme === "dark") {
+    toggleSwitch.checked = true;
+  }
+}
+
+function nextQueue(myJson) {
   const cloneList = document.querySelector(".queueList");
   const temp = document.querySelector(".nextOrder template");
   cloneList.innerHTML = "";
