@@ -34,15 +34,15 @@ b {
 .content {
   display: grid;
   grid-template-columns: 20vw 20vw 20vw 32vw;
-  grid-template-rows: 10vh 40vh 40vh;
+  grid-template-rows: 4vh 6vh 40vh 40vh;
   grid-template-areas:
-    "titel title switch right"
+    "title title time switch"
+    "title title time right"
     "queueBars queueBars queueLength  right"
     "nextOrder bartenderStatus bartenderStatus right";
-  /* "totalEarnings totalEarnings totalEarnings right"; */
 
   column-gap: 20px;
-  row-gap: 20px;
+  row-gap: 15px;
 
   height: 100vh;
   padding: 20px;
@@ -59,6 +59,7 @@ b {
 }
 
 .title {
+  /* grid-area: title; */
   display: flex;
 }
 
@@ -412,22 +413,30 @@ h4 {
   display: flex;
 }
 
+#time {
+  color: var(--font-color);
+
+  font-size: 1.5rem;
+  font-weight: 100;
+  grid-area: time;
+}
+
 .openbtn {
   /* font-size: 20px; */
   cursor: pointer;
   color: white;
   padding: 10px 15px;
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   background-image: var(--settings);
   background-size: 100%;
-  /* position: fixed;
-  right: 0; */
+  position: fixed;
+  right: 50px;
 }
 
 .openbtn:hover {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   background-image: var(--settings-inv);
   background-size: 100%;
 

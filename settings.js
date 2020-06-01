@@ -10,12 +10,13 @@ function closeNav() {
 }
 
 // JQuery fake login solution:
+// scr = https://codepen.io/opensoorce/pen/KQmvdL
 $(document).ready(function () {
   $("#submit").click(function () {
     event.preventDefault(); // prevent PageReLoad
 
-    var ValidEmail = $("#username").val() === "test"; // User validate
-    var ValidPassword = $("#password").val() === "test"; // Password validate
+    var ValidEmail = $("#username").val() === "admin"; // User validate
+    var ValidPassword = $("#password").val() === "admin"; // Password validate
 
     if (ValidEmail === true && ValidPassword === true) {
       // if ValidEmail & ValidPassword
@@ -52,7 +53,7 @@ function displaySetting() {
       h = checkTime(today.getHours()),
       m = checkTime(today.getMinutes()),
       s = checkTime(today.getSeconds());
-    document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
+    document.querySelector("#time h3").innerHTML = h + ":" + m + ":" + s;
     t = setTimeout(function () {
       startTime();
     }, 500);
