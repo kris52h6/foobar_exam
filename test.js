@@ -30,12 +30,12 @@
 //   costumerQueue.push(height);
 
 // Queue bars
-function setHeights(queueJson) {
-  for (let i = 0; i < costumerQueue.length; i++) {
-    let bar = document.querySelector(`#barParent > div:nth-child(${i + 1})`);
-    document.querySelector(`#barParent > div:nth-child(${i + 1}) > p`).textContent = costumerQueue[i];
+// function setHeights(queueJson) {
+//   for (let i = 0; i < costumerQueue.length; i++) {
+//     let bar = document.querySelector(`#barParent > div:nth-child(${i + 1})`);
+//     document.querySelector(`#barParent > div:nth-child(${i + 1}) > p`).textContent = costumerQueue[i];
 
-//   setTimeout(getQueue, 10000);
+// //   setTimeout(getQueue, 10000);
 // }
 
 // // Queue bars
@@ -49,86 +49,86 @@ function setHeights(queueJson) {
 //   count(queueJson);
 // }
 
-// Settings button - open and close menu
-function openNav() {
-  document.getElementById("mySidepanel").style.width = "500px";
-  document.getElementById("mySidepanel").style.padding = "60px 20px 0 20px";
-}
-
-function closeNav() {
-  document.getElementById("mySidepanel").style.width = "0";
-  document.getElementById("mySidepanel").style.padding = "60px 0 0 0";
-}
-
-// FAKE LOGIN
-// function subFunction() {
-//   const form = document.querySelector("form");
-//   form.addEventListener("submit", (e) => {
-//     e.preventDefault();
-//     if (form.checkValidity()) {
-//       console.log("ready");
-//       valid();
-//     }
-//   });
+// // Settings button - open and close menu
+// function openNav() {
+//   document.getElementById("mySidepanel").style.width = "500px";
+//   document.getElementById("mySidepanel").style.padding = "60px 20px 0 20px";
 // }
 
-// JQuery fake login solution:
-$(document).ready(function () {
-  //$('#username').focus();
+// function closeNav() {
+//   document.getElementById("mySidepanel").style.width = "0";
+//   document.getElementById("mySidepanel").style.padding = "60px 0 0 0";
+// }
 
-  $("#submit").click(function () {
-    event.preventDefault(); // prevent PageReLoad
+// // FAKE LOGIN
+// // function subFunction() {
+// //   const form = document.querySelector("form");
+// //   form.addEventListener("submit", (e) => {
+// //     e.preventDefault();
+// //     if (form.checkValidity()) {
+// //       console.log("ready");
+// //       valid();
+// //     }
+// //   });
+// // }
 
-    var ValidEmail = $("#username").val() === "test"; // User validate
-    var ValidPassword = $("#password").val() === "test"; // Password validate
+// // JQuery fake login solution:
+// $(document).ready(function () {
+//   //$('#username').focus();
 
-    if (ValidEmail === true && ValidPassword === true) {
-      // if ValidEmail & ValidPassword
-      $(".valid").css("display", "block");
-      $(".error").css("display", "none"); // show error msg
-      valid();
-    } else {
-      $(".error").css("display", "block"); // show error msg
-    }
-  });
-});
+//   $("#submit").click(function () {
+//     event.preventDefault(); // prevent PageReLoad
 
-function valid() {
-  document.querySelector("button p").classList.add("hidden");
-  document.querySelector(".loadContainer").style.display = "block";
-  setTimeout(displaySetting, 2000);
-}
+//     var ValidEmail = $("#username").val() === "test"; // User validate
+//     var ValidPassword = $("#password").val() === "test"; // Password validate
 
-function displaySetting() {
-  console.log("push");
-  document.querySelector(".loadContainer").classList.add("hidden");
-  document.querySelector("form").classList.add("hidden");
-  document.querySelector("#settings").style.display = "block";
-}
+//     if (ValidEmail === true && ValidPassword === true) {
+//       // if ValidEmail & ValidPassword
+//       $(".valid").css("display", "block");
+//       $(".error").css("display", "none"); // show error msg
+//       valid();
+//     } else {
+//       $(".error").css("display", "block"); // show error msg
+//     }
+//   });
+// });
 
-(function () {
-  function checkTime(i) {
-    return i < 10 ? "0" + i : i;
-  }
+// function valid() {
+//   document.querySelector("button p").classList.add("hidden");
+//   document.querySelector(".loadContainer").style.display = "block";
+//   setTimeout(displaySetting, 2000);
+// }
 
-  function startTime() {
-    var today = new Date(),
-      h = checkTime(today.getHours()),
-      m = checkTime(today.getMinutes()),
-      s = checkTime(today.getSeconds());
-    document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
-    t = setTimeout(function () {
-      startTime();
-    }, 500);
-  }
-  startTime();
-})();
+// function displaySetting() {
+//   console.log("push");
+//   document.querySelector(".loadContainer").classList.add("hidden");
+//   document.querySelector("form").classList.add("hidden");
+//   document.querySelector("#settings").style.display = "block";
+// }
 
-const fridayAfternoon = true;
-function snack() {
-  if (fridayAfternoon == true) {
-    alert("cheers mum");
-  } else {
-    alert(":(");
-  }
-}
+// (function () {
+//   function checkTime(i) {
+//     return i < 10 ? "0" + i : i;
+//   }
+
+//   function startTime() {
+//     var today = new Date(),
+//       h = checkTime(today.getHours()),
+//       m = checkTime(today.getMinutes()),
+//       s = checkTime(today.getSeconds());
+//     document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
+//     t = setTimeout(function () {
+//       startTime();
+//     }, 500);
+//   }
+//   startTime();
+// })();
+
+// const fridayAfternoon = true;
+// function snack() {
+//   if (fridayAfternoon == true) {
+//     alert("cheers mum");
+//   } else {
+//     alert(":(");
+//   }
+// }
