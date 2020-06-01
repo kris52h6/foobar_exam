@@ -255,6 +255,9 @@ h4 {
   color: black;
 }
 
+.form-group {
+  color: red;
+}
 /******* form checkout *******/
 
 .title .arrowback {
