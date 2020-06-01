@@ -70,7 +70,7 @@ function beerStorage(queueJson) {
 
 // Settings button - open and close menu
 function openNav() {
-  document.getElementById("mySidepanel").style.width = "35vw";
+  document.getElementById("mySidepanel").style.width = "500px";
   document.getElementById("mySidepanel").style.padding = "60px 20px 0 20px";
 }
 

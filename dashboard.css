@@ -51,6 +51,7 @@ b {
 .box {
   background-color: var(--secondary-color);
   padding: 15px;
+  border-radius: 10px;
 
   -webkit-box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
   -moz-box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
@@ -166,12 +167,12 @@ input:checked + .slider:before {
   grid-area: queueBars;
 
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   justify-content: center;
 }
 
 #barParent {
-  background-color: var(--secondary-color);
+  /* background-color: var(--secondary-color); */
   display: flex;
   align-items: flex-end;
   height: 100%;
@@ -268,21 +269,6 @@ h4 {
   margin-top: 10px;
   width: 3vw;
 }
-
-/*** TOTAL EARNINGS ***/
-/* .totalEarnings {
-  grid-area: totalEarnings;
-
-  display: flex;
-}
-
-.totalEarnings h2 {
-  color: var(--font-color);
-  text-align: end;
-  font-size: 3rem;
-  font-weight: 100;
-}
-
 
 /***** BEER STORAGE ****/
 
@@ -418,9 +404,12 @@ h4 {
 
 .settingButton {
   grid-area: switch;
+
+  display: flex;
 }
+
 .openbtn {
-  font-size: 20px;
+  /* font-size: 20px; */
   cursor: pointer;
   color: white;
   padding: 10px 15px;
@@ -428,6 +417,8 @@ h4 {
   width: 40px;
   background-image: var(--settings);
   background-size: 100%;
+  /* position: fixed;
+  right: 0; */
 }
 
 .openbtn:hover {
@@ -522,5 +513,85 @@ button:hover {
 @keyframes dots {
   50% {
     opacity: 0;
+  }
+}
+
+/*** MOBILE ***/
+@media only screen and (max-width: 1000px) {
+  .content {
+    display: grid;
+    grid-template-columns: 45vw 40vw;
+    grid-template-rows: 10vh 30vh 30vh 40vh;
+    grid-template-areas:
+      "titel switch"
+      "queueBars  queueLength"
+      "nextOrder nextOrder"
+      "bartenderStatus bartenderStatus"
+      "right right";
+  }
+
+  .settingButton {
+    grid-area: switch;
+  }
+  .queueBars {
+    grid-area: queueBars;
+
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+  }
+
+  .bars {
+    width: 4vw;
+    height: calc(var(--height) * 20px);
+    max-height: 200px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    border: var(--icon-color) solid;
+    border-radius: 5px 5px 0px 0px;
+    background-color: var(--icon-color);
+  }
+
+  .queueLength {
+    grid-area: queueLength;
+    position: relative;
+  }
+
+  .nextOrder {
+    grid-area: nextOrder;
+  }
+
+  .bartenderStatus {
+    grid-area: bartenderStatus;
+  }
+
+  .bartenderList {
+    /* margin-top: 20px; */
+    margin: 20px 0 0px 20px;
+
+    width: 80vw;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .bartender_wrapper {
+    width: 20vw;
+    align-items: center;
+  }
+
+  .icons {
+    display: flex;
+  }
+
+  .largeIcon {
+    width: 6vw;
+  }
+  .smallIcon {
+    margin-top: 10px;
+    width: 4vw;
+  }
+
+  .right {
+    grid-area: right;
   }
 }
