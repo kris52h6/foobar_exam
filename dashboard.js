@@ -44,9 +44,9 @@ function nextQueue(myJson) {
   const cloneList = document.querySelector(".queueList");
   const temp = document.querySelector(".nextOrder template");
   cloneList.innerHTML = "";
-  myJson.queue.forEach((queue) => {
+  myJson.queue[0].order.forEach((order) => {
     const clone = temp.cloneNode(true).content;
-    clone.querySelector("h3").textContent = queue.order[0];
+    clone.querySelector("h3").textContent = order;
     cloneList.appendChild(clone);
   });
 }
