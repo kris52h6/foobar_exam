@@ -44,11 +44,13 @@ function nextQueue(myJson) {
   const cloneList = document.querySelector(".queueList");
   const temp = document.querySelector(".nextOrder template");
   cloneList.innerHTML = "";
-  myJson.queue[0].order.forEach((order) => {
-    const clone = temp.cloneNode(true).content;
-    clone.querySelector("h3").textContent = order;
-    cloneList.appendChild(clone);
-  });
+  if (myJson.queue[0]) {
+    myJson.queue[0].order.forEach((order) => {
+      const clone = temp.cloneNode(true).content;
+      clone.querySelector("h3").textContent = order;
+      cloneList.appendChild(clone);
+    });
+  }
 }
 
 //BARTENDER STATUS
