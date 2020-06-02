@@ -22,7 +22,7 @@ function queueSize(myJson) {
   let tema = document.querySelector("body").dataset.theme;
 
   document.querySelector(".costumer_img").innerHTML = "";
-  document.querySelector("h2").textContent = +myJson.queue.length;
+  document.querySelector("h2").textContent = myJson.queue.length;
 
   for (let i = 0; i < myJson.queue.length; i++) {
     if (i < 5) {
