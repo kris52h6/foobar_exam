@@ -70,12 +70,13 @@ function displayBeers(minJson) {
 function beerMinus() {
   if (document.querySelectorAll(".quantity")[event.target.id].value > 1) {
     document.querySelectorAll(".quantity")[event.target.id].value--;
-  } else {
   }
 }
 
 function beerPlus() {
-  document.querySelectorAll(".quantity")[event.target.id].value++;
+  if (document.querySelectorAll(".quantity")[event.target.id].value < 9) {
+    document.querySelectorAll(".quantity")[event.target.id].value++;
+  }
 }
 
 // laver flueben når man trykker på .add knappenøøøø

@@ -92,7 +92,7 @@ h4 {
 }
 
 .grid {
-  padding: 30px;
+  padding: 10px;
   background-color: white;
   -webkit-box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
   -moz-box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
@@ -118,9 +118,9 @@ h4 {
 }
 
 .button {
-  display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  text-align: center;
 }
 
 .quantity {
@@ -131,19 +131,14 @@ h4 {
   text-align: center;
 }
 
-.minus {
+.minus,
+.plus {
   margin-top: 30px;
   width: 28px;
   height: 24px;
   background-color: white;
   border: 0.1px solid black;
-}
-
-.plus {
-  margin-top: 30px;
-  width: 28px;
-  height: 24px;
-  border: 0.1px solid black;
+  cursor: pointer;
 }
 
 .grid .add {
