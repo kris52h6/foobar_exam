@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", init);
 
 const beerURL = "https://kristian-victor-foobar.herokuapp.com/beertypes";
+const tapsURL = "https://kristian-victor-foobar.herokuapp.com/";
 let cartArray = [];
 let cartlist = document.querySelector(".cartlist");
 let formCheck = document.querySelector("form");
@@ -11,10 +12,11 @@ let totalAmount = [];
 
 function init() {
   getBeers();
+  // kalder displayCart, hvis scriptet køres på form_cart.html
   if (cartlist) {
     displayCart();
   }
-
+  // kalder postFunction, hvis scriptet køres på form_checkout.html
   if (formCheck) {
     postFunction();
   }
@@ -23,10 +25,12 @@ function init() {
 async function getBeers() {
   let jsonData = await fetch(beerURL);
   minJson = await jsonData.json();
-  displayBeers(minJson);
+  let tapsData = await fetch(tapsURL);
+  myTaps = await tapsData.json();
+  displayBeers(minJson, myTaps);
 }
 
-function displayBeers(minJson) {
+function displayBeers(minJson, myTaps) {
   const modtagerKloner = document.querySelector(".beerlist");
   const skabelon = document.querySelector("template");
   let taeller = 0;
