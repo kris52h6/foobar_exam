@@ -27,6 +27,14 @@ $(document).ready(function () {
       valid();
     } else {
       $(".error").css("display", "block"); // show error msg
+      $("form")
+        .addClass("shake")
+        .delay(500)
+        .queue(function () {
+          $("form").removeClass("shake");
+          $("input[name='psw']").focus().select();
+          $("form").dequeue();
+        });
     }
   });
 });
@@ -41,6 +49,7 @@ function displaySetting() {
   console.log("push");
   document.querySelector(".loadContainer").classList.add("hidden");
   document.querySelector("form").classList.add("hidden");
+  document.querySelector(".loginTitle").classList.add("hidden");
   document.querySelector("#settings").style.display = "block";
 }
 

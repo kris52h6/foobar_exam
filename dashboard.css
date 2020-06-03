@@ -36,8 +36,8 @@ b {
   grid-template-columns: 20vw 20vw 20vw 32vw;
   grid-template-rows: 2vh 6vh 40vh 40vh;
   grid-template-areas:
-    "title title switch right"
     "title title time right"
+    "title title switch right"
     "queueBars queueBars queueLength  right"
     "nextOrder bartenderStatus bartenderStatus right";
 
@@ -76,7 +76,7 @@ b {
 #time {
   color: var(--font-color);
 
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-weight: 100;
   grid-area: time;
 }
@@ -88,7 +88,7 @@ b {
   padding: 10px 15px;
   height: 30px;
   width: 30px;
-  background-image: var(--settings);
+  background-image: var(--settings-icon);
   background-size: 100%;
   position: fixed;
   right: 50px;
@@ -186,7 +186,7 @@ input:checked + .slider:before {
   --font-color: white;
   --circle-bg: #222224;
 
-  --settings: url(icons/settingsDark.png);
+  --settings-icon: url(icons/settingsDark.png);
   --settings-inv: url(icons/settingsDarkInv.png);
 
   --logo: url(icons/logoDark.png);
@@ -199,7 +199,7 @@ input:checked + .slider:before {
   --font-color: black;
   --circle-bg: #efefef;
 
-  --settings: url(icons/settingsLight.png);
+  --settings-icon: url(icons/settingsLight.png);
   --settings-inv: url(icons/settingsDark.png);
 
   --logo: url(icons/logoLight.png);
@@ -428,8 +428,9 @@ h4 {
 
   background-color: var(--secondary-color);
 
-  margin-top: 20px;
-  height: 50px;
+  margin-top: 10px;
+  height: 70px;
+  border-radius: 10px;
 
   -webkit-box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
   -moz-box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
@@ -564,6 +565,33 @@ button:hover {
   }
 }
 
+@keyframes shake {
+  0%,
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(8px);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-8px);
+  }
+}
+
+form.shake {
+  animation: shake 0.5s infinite;
+}
+
+@keyframes glow-red {
+  50% {
+    border-color: indianred;
+  }
+}
+
 /*** MOBILE ***/
 @media only screen and (max-width: 1000px) {
   .content {
@@ -581,6 +609,9 @@ button:hover {
 
   .logo {
     max-width: 200px;
+  }
+  #time {
+    font-size: 1.5rem;
   }
   .settingButton {
     grid-area: switch;
