@@ -49,11 +49,9 @@ function displayBeers(minJson, myTaps) {
       const found = myTaps.taps.find((tap) => {
         return tap.beer == beertype.name;
       });
-      console.log(found);
       const available = found ? true : false;
 
       if (available == false) {
-        console.log("test");
         klon.querySelector(".unavailable").textContent = "Unavailable";
         klon.querySelector(".button").style.opacity = "20%";
       }
@@ -139,40 +137,7 @@ function beerCount(beertype, event) {
     // addedToCart(beerAmount);
   }
 
-  // let fundet = false;
-  // for (let i = 0; i < cartArray.length; i++) {
-  //   if (cartArray[i].name == "El Hefe") {
-  //     fundet = true;
-  //     console.log(fundet);
-  //   }
-  // }
-
-  // if (cartArray.includes.name) {
-  //   console.log(beertype.name);
-  //   console.log("ja");
-  // }
-
   console.log(cartArray);
-  // if (cartArray.length > 1) {
-  // for (let i = 0; i < cartArray.length; i++) {
-  //   if (cartArray[i].name === beerObject.name) {
-  //     console.log(cartArray[i].amount);
-  //     console.log(beerObject.amount);
-
-  //     console.log(name);
-  //     console.log("ja");
-  //     return cartArray[i];
-  //   }
-
-  //   cartArray.push(beerObject);
-  // }
-
-  // for (let i = 0; i < cartArray.length; i++) {
-  //   if ((cartArray[i].name = cartArray[i].name)) {
-  //     console.log(cartArray[i].name);
-  //   }
-  // }
-
   // stringify'er cartArray og sætter localStorage til at være værdien af det.
   localStorage.setItem("order", JSON.stringify(cartArray));
 }
@@ -193,6 +158,7 @@ function displayCart(cartArray) {
 
   let orderParse = JSON.parse(currentOrder);
 
+  // regner total prisen på ordren ud og displayer prisen
   let orderPrice = 0;
   for (let i = 0; i < orderParse.length; i++) {
     orderPrice = +orderParse[i].amount + orderPrice;
