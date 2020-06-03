@@ -1,3 +1,5 @@
+"use strict";
+
 // Settings button - open and close menu
 function openNav() {
   document.getElementById("mySidepanel").style.width = "500px";
@@ -15,8 +17,8 @@ $(document).ready(function () {
   $("#submit").click(function () {
     event.preventDefault(); // prevent PageReLoad
 
-    var ValidEmail = $("#username").val() === "admin"; // User validate
-    var ValidPassword = $("#password").val() === "admin"; // Password validate
+    const ValidEmail = $("#username").val() === "admin"; // User validate
+    const ValidPassword = $("#password").val() === "admin"; // Password validate
 
     if (ValidEmail === true && ValidPassword === true) {
       // if ValidEmail & ValidPassword
@@ -41,25 +43,6 @@ function displaySetting() {
   document.querySelector("form").classList.add("hidden");
   document.querySelector("#settings").style.display = "block";
 }
-
-// DISPLAYING TIME
-(function () {
-  function checkTime(i) {
-    return i < 10 ? "0" + i : i;
-  }
-
-  function startTime() {
-    var today = new Date(),
-      h = checkTime(today.getHours()),
-      m = checkTime(today.getMinutes()),
-      s = checkTime(today.getSeconds());
-    document.querySelector("#time h3").innerHTML = h + ":" + m + ":" + s;
-    t = setTimeout(function () {
-      startTime();
-    }, 500);
-  }
-  startTime();
-})();
 
 // THEME SWITCHER
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
@@ -88,3 +71,22 @@ if (currentTheme) {
     toggleSwitch.checked = true;
   }
 }
+
+// DISPLAYING TIME
+(function () {
+  function checkTime(i) {
+    return i < 10 ? "0" + i : i;
+  }
+
+  function startTime(t) {
+    const today = new Date(),
+      h = checkTime(today.getHours()),
+      m = checkTime(today.getMinutes()),
+      s = checkTime(today.getSeconds());
+    document.querySelector("#time h3").innerHTML = h + ":" + m + ":" + s;
+    t = setTimeout(function () {
+      startTime();
+    }, 500);
+  }
+  startTime();
+})();

@@ -1,3 +1,5 @@
+"use strict";
+
 document.addEventListener("DOMContentLoaded", start);
 
 function start() {
@@ -11,8 +13,8 @@ async function getJson(myJson) {
   myJson = await jsonData.json();
 
   queueSize(myJson);
-  bartenderStatus(myJson);
   nextQueue(myJson);
+  bartenderStatus(myJson);
   total(myJson);
   beerStorage(myJson);
 }
@@ -127,5 +129,6 @@ function beerStorage(myJson) {
     let beerBar = document.querySelector(`#storage_parent > div:nth-child(${i + 1}) > div.barParrent > div.storage_bar`);
 
     beerBar.style.setProperty("--width", myJson.storage[i].amount);
+    // document.querySelector(`#storage_parent > div:nth-child(${i + 1}) > h2`).textContent = myJson.storage[i].name + ": " + myJson.storage[i].amount;
   }
 }

@@ -1,3 +1,5 @@
+"use strict";
+
 document.addEventListener("DOMContentLoaded", init);
 
 const beerURL = "https://kristian-victor-foobar.herokuapp.com/beertypes";
