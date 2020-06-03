@@ -7,6 +7,7 @@ const tapsURL = "https://kristian-victor-foobar.herokuapp.com/";
 let cartArray = [];
 let cartlist = document.querySelector(".cartlist");
 let formCheck = document.querySelector("form");
+let matches = [];
 
 let totalAmount = [];
 
@@ -38,30 +39,44 @@ function displayBeers(minJson, myTaps) {
   let taeller = 0;
   let taellerPlus = 0;
   let taellerMinus = 0;
-  // console.log(minJson);
 
   if (modtagerKloner) {
     modtagerKloner.innerHTML = "";
 
     minJson.forEach((beertype) => {
       const klon = skabelon.cloneNode(true).content;
+
+      const found = myTaps.taps.find((tap) => {
+        return tap.beer == beertype.name;
+      });
+      console.log(found);
+      const available = found ? true : false;
+
+      if (available == false) {
+        console.log("test");
+        klon.querySelector(".unavailable").textContent = "Unavailable";
+        klon.querySelector(".button").style.opacity = "20%";
+      }
+
       klon.querySelector(".name").textContent = beertype.name;
 
       klon.querySelector(".add").id = taeller;
       klon.querySelector(".plus").id = taellerPlus;
       klon.querySelector(".minus").id = taellerMinus;
 
-      klon.querySelector(".minus").addEventListener("click", () => {
-        beerMinus();
-      });
+      if (available == true) {
+        klon.querySelector(".minus").addEventListener("click", () => {
+          beerMinus();
+        });
 
-      klon.querySelector(".plus").addEventListener("click", () => {
-        beerPlus();
-      });
-      klon.querySelector(".add").addEventListener("click", (event) => {
-        beerAdded(event);
-        beerCount(beertype, event);
-      });
+        klon.querySelector(".plus").addEventListener("click", () => {
+          beerPlus();
+        });
+        klon.querySelector(".add").addEventListener("click", (event) => {
+          beerAdded(event);
+          beerCount(beertype, event);
+        });
+      }
       taeller++;
       taellerPlus++;
       taellerMinus++;
@@ -71,6 +86,9 @@ function displayBeers(minJson, myTaps) {
       modtagerKloner.appendChild(klon);
     });
   }
+
+  // const intersections = minJson.filter((name) => myTaps.taps.indexOf(name) !== -1);
+  // console.log(intersections);
 }
 
 function beerMinus() {

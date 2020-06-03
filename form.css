@@ -46,9 +46,15 @@ h2 {
   font-size: 1rem;
 }
 
-h4 {
+.price {
   opacity: 50%;
   font-size: 0.8rem;
+}
+
+.unavailable {
+  opacity: 80%;
+  font-size: 0.8rem;
+  color: red;
 }
 
 .title {
@@ -152,12 +158,6 @@ h4 {
   border: 0px;
   cursor: pointer;
 }
-
-/* .quantiy_wrapper {
-  width: 100px;
-  display: flex;
-  justify-content: center;
-} */
 
 .proceed {
   margin-top: 20px;
