@@ -17,14 +17,20 @@ $(document).ready(function () {
   $("#submit").click(function () {
     event.preventDefault(); // prevent PageReLoad
 
-    const ValidEmail = $("#username").val() === "admin"; // User validate
+    const ValidUser = $("#username").val() === "admin"; // User validate
     const ValidPassword = $("#password").val() === "admin"; // Password validate
 
-    if (ValidEmail === true && ValidPassword === true) {
+    if (ValidUser === true && ValidPassword === true) {
       // if ValidEmail & ValidPassword
       $(".valid").css("display", "block");
       $(".error").css("display", "none");
+      $(".error2").css("display", "none");
+      $(".error3").css("display", "none");
       valid();
+    } else if (ValidUser === true && ValidPassword === false) {
+      $(".error3").css("display", "block"); // show error msg
+    } else if (ValidUser === false && ValidPassword === true) {
+      $(".error2").css("display", "block"); // show error msg
     } else {
       $(".error").css("display", "block"); // show error msg
       $("form")

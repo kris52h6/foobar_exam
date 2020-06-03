@@ -491,6 +491,8 @@ input[type="password"] {
 }
 
 .error,
+.error2,
+.error3,
 .valid {
   color: var(--font-color);
   display: none;
