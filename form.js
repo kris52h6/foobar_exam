@@ -179,7 +179,7 @@ function displayCart(cartArray) {
   for (let i = 0; i < orderParse.length; i++) {
     orderPrice = +orderParse[i].amount + orderPrice;
   }
-  totalPrice = orderPrice * 49;
+  let totalPrice = orderPrice * 49;
   document.querySelector("body > div.total > h2").textContent = orderPrice * 49 + " DKK";
 
   orderParse.forEach((order) => {
