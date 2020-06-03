@@ -24,7 +24,7 @@ function init() {
   }
 }
 
-async function getBeers() {
+async function getBeers(minJson, myTaps) {
   let jsonData = await fetch(beerURL);
   minJson = await jsonData.json();
   let tapsData = await fetch(tapsURL);
