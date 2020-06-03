@@ -26,18 +26,18 @@
         <div class="form-group">
 
           <label for="cardnumber">CARD NUMBER</label>
-          <input type="text" id="cardnumber" placeholder="1234 5678 3456 2456" value="" minlength="16" maxlength="16" required data-pristine-required-message="Cardnumber must be 16 characters"  />
+          <input type="number" id="cardnumber" placeholder="1234 5678 3456 2456" value="" minlength="16" maxlength="16" required data-pristine-required-message="Cardnumber must be 16 characters"  />
         </div>
 
           <div class="details_wrapper">
             <div class="form-group">
-            <div class="tester">
+            <div class="expire">
               <label for="expire">Expire</label>
-              <input type="text" id="expire" placeholder="05 / 21" minlength="5" maxlength="5" required data-pristine-required-message="Must have 2 dates" />
+              <input type="text" id="expire" placeholder="05 / 21" minlength="4" maxlength="4" required data-pristine-required-message="Must have 2 dates" />
             </div>
             </div>
 
-            <div class="tester2">
+            <div class="cvc">
               <div class="form-group">
               <label for="cvc">CVC</label>
               <input type="text" id="cvc" placeholder="123" minlength="3" maxlength="3" required data-pristine-required-message="CVC must be 3 characters" />

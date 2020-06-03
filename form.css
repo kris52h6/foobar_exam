@@ -24,7 +24,6 @@ body {
 }
 
 .title p {
-  /* line-height: 50px; */
   color: white;
 }
 
@@ -46,9 +45,15 @@ h2 {
   font-size: 1rem;
 }
 
-h4 {
+.price {
   opacity: 50%;
   font-size: 0.8rem;
+}
+
+.unavailable {
+  opacity: 80%;
+  font-size: 0.8rem;
+  color: red;
 }
 
 .title {
@@ -74,7 +79,6 @@ h4 {
   color: white;
   border-radius: 50%;
   text-align: center;
-  /* animation: purchase 1s linear; */
 }
 
 .numberInCart {
@@ -97,6 +101,7 @@ h4 {
   -webkit-box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
   -moz-box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
   box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
+  border-radius: 5px;
 }
 
 .beerlist {
@@ -151,13 +156,8 @@ h4 {
   font-size: 0.8rem;
   border: 0px;
   cursor: pointer;
+  border-radius: 5px;
 }
-
-/* .quantiy_wrapper {
-  width: 100px;
-  display: flex;
-  justify-content: center;
-} */
 
 .proceed {
   margin-top: 20px;
@@ -172,6 +172,7 @@ h4 {
   font-size: 1.2rem;
   line-height: 45px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .continue {
@@ -185,6 +186,7 @@ h4 {
   line-height: 45px;
   background-color: white;
   font-size: 1.2rem;
+  border-radius: 5px;
 }
 
 /****** FORM CART *****/
@@ -198,6 +200,7 @@ h4 {
   -webkit-box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
   -moz-box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
   box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
+  border-radius: 5px;
 }
 
 #cart_wrapper h1 {
@@ -214,31 +217,32 @@ h4 {
 }
 
 .cart_right .wrapper {
-  background-color: #631fee;
-
-  margin-right: 5vh;
+  margin-right: 1vh;
   width: 5vh;
   height: 5vh;
-  margin-top: 3vh;
+  margin-top: 2.5vh;
   border-radius: 10%;
+  text-align: center;
 }
 
 .cart_right h2 {
   font-size: 1.5rem;
-  margin-left: 1.5vh;
-  color: white;
+  color: black;
+  border: 1px solid black;
 }
 
 .cart_right .remove {
+  margin-right: 1vh;
   margin-top: 3vh;
-  width: 5vh;
+  padding: 5px;
   height: 5vh;
-  margin-left: -5vh;
   border: 1px solid black;
-  color: black;
+  color: white;
   border: 0px;
-  font-size: 1.5rem;
+  font-size: 0.8rem;
   cursor: pointer;
+  background-color: #631fee;
+  border-radius: 5px;
 }
 
 .total {
@@ -282,7 +286,7 @@ label {
 }
 
 input[type="text"],
-input[type="email"] {
+input[type="number"] {
   background-color: #d3d3d3;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -312,6 +316,7 @@ input[type="submit"] {
   text-align: center;
   color: white;
   font-size: 1.5rem;
+  border-radius: 5px;
 }
 
 .details_wrapper {
@@ -323,13 +328,17 @@ input[type="submit"] {
   height: 50px;
 }
 
-.tester {
+.expire {
   width: 15vw;
 }
 
-.tester2 {
+.cvc {
   margin-left: 20px;
   width: 10vw;
+}
+
+.cvc .pristine-error {
+  width: 35vw;
 }
 
 .purchaseComplete {
