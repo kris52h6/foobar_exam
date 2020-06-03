@@ -382,7 +382,7 @@ h4 {
 }
 
 .storage_bar {
-  width: calc(var(--width) * 10px);
+  width: calc(var(--width) * 15px);
   height: 10px;
   margin: auto;
   margin-left: 1px;
