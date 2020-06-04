@@ -101,7 +101,7 @@ function beerPlus() {
   }
 }
 
-// laver flueben når man trykker på .add knappenøøøø
+// laver flueben når man trykker på .add knappen
 function beerAdded(event) {
   document.querySelectorAll(".add")[event.target.id].textContent = "✔";
   document.querySelector("span > p").classList.add("numberInCart");
@@ -237,7 +237,6 @@ function postFunction() {
     e.preventDefault();
 
     let valid = pristine.validate();
-    let cardnumber = document.getElementById("cardnumber");
 
     if (valid) {
       console.log("valid");
