@@ -428,9 +428,7 @@ input[type="submit"] {
   top: 0;
   left: 0;
   width: 100vw;
-  /* height: 100vh; */
   background-color: rgba(0, 0, 0, 0.83);
-  /* background-color: var(--secondary-color); */
   display: none;
   z-index: 100;
   max-height: 100%;
@@ -438,14 +436,12 @@ input[type="submit"] {
 }
 
 .indhold {
-  /* width: 50vw; */
   margin: 4rem auto;
   padding: 10px;
 }
 
 .singleBeer {
   background-color: white;
-
   padding: 20px;
 }
 
