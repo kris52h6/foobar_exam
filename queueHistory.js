@@ -17,18 +17,7 @@ async function getQueue(queueJson) {
   setHeights(queueJson);
 }
 
-// COSTUMER CHART
-function count(queueJson) {
-  let height = queueJson.queue.length;
-
-  costumerQueue.push(height);
-
-  costumerQueue.shift();
-
-  setTimeout(getQueue, 10000);
-}
-
-// Queue bars
+// sets height of queue bar
 function setHeights(queueJson) {
   for (let i = 0; i < costumerQueue.length; i++) {
     let bar = document.querySelector(`#barParent > div:nth-child(${i + 1})`);
@@ -38,4 +27,15 @@ function setHeights(queueJson) {
   }
 
   count(queueJson);
+}
+
+// pushes bar to array
+function count(queueJson) {
+  let height = queueJson.queue.length;
+
+  costumerQueue.push(height);
+
+  costumerQueue.shift();
+
+  setTimeout(getQueue, 10000); // makes it opdate every 10 sec
 }

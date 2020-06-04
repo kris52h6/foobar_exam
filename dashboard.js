@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", start);
 function start() {
   setInterval(() => {
     getJson();
-  }, 1000);
+  }, 1000); // Makes everything update every secund
 }
 
 async function getJson(myJson) {
@@ -46,6 +46,7 @@ function nextQueue(myJson) {
   const cloneList = document.querySelector(".queueList");
   const temp = document.querySelector(".nextOrder template");
   cloneList.innerHTML = "";
+  // if statement for when the queue isnt empty
   if (myJson.queue[0]) {
     myJson.queue[0].order.forEach((order) => {
       const clone = temp.cloneNode(true).content;
@@ -74,9 +75,9 @@ function bartenderStatus(myJson) {
         klon.querySelector("h3").textContent = "Waiting";
       }
 
-      //   klon.querySelector("h3").textContent = bartender.status;
-      let tema = document.querySelector("body").dataset.theme;
+      let tema = document.querySelector("body").dataset.theme; // defines the current theme to use on symbols
 
+      // cleans the bartender data for displaying
       if (bartender.statusDetail === "pourBeer") {
         klon.querySelector("h4").textContent = "Pouring Beer";
         klon.querySelector(".icons>.smallIcon>.icon").src = "icons/" + tema + "/pouringBeer.png";
@@ -113,6 +114,7 @@ function bartenderStatus(myJson) {
 }
 
 // STORAGE
+// storage circle
 function total(myJson) {
   let totalBeers = myJson.storage.reduce((accum, item) => accum + item.amount, 0);
 
@@ -123,7 +125,7 @@ function total(myJson) {
 
   document.querySelector(".percentage").textContent = totalBeers + "%";
 }
-
+// bottom storage
 function beerStorage(myJson) {
   for (let i = 0; i < myJson.storage.length; i++) {
     let beerBar = document.querySelector(`#storage_parent > div:nth-child(${i + 1}) > div.barParrent > div.storage_bar`);

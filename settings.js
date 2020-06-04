@@ -65,12 +65,14 @@ $(document).ready(function () {
   });
 });
 
+// Fake loading
 function valid() {
   document.querySelector("button p").classList.add("hidden");
   document.querySelector(".loadContainer").style.display = "block";
   setTimeout(displaySetting, 2000);
 }
 
+// Shows settings
 function displaySetting() {
   console.log("push");
   document.querySelector(".loadContainer").classList.add("hidden");
