@@ -422,3 +422,49 @@ input[type="submit"] {
     opacity: 0;
   }
 }
+
+#popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* height: 100vh; */
+  background-color: rgba(0, 0, 0, 0.83);
+  /* background-color: var(--secondary-color); */
+  display: none;
+  z-index: 100;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.indhold {
+  /* width: 50vw; */
+  margin: 4rem auto;
+  padding: 10px;
+}
+
+.singleBeer {
+  background-color: white;
+
+  padding: 20px;
+}
+
+.singleBeer a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.singleBeer a:hover {
+  color: black;
+}
+
+.singleBeer .closebtn {
+  position: fixed;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
