@@ -28,9 +28,29 @@ $(document).ready(function () {
       $(".error3").css("display", "none");
       valid();
     } else if (ValidUser === true && ValidPassword === false) {
+      $(".error").css("display", "none");
+      $(".error2").css("display", "none");
       $(".error3").css("display", "block"); // show error msg
+      $("form")
+        .addClass("shake")
+        .delay(500)
+        .queue(function () {
+          $("form").removeClass("shake");
+          $("input[name='psw']").focus().select();
+          $("form").dequeue();
+        });
     } else if (ValidUser === false && ValidPassword === true) {
+      $(".error").css("display", "none");
       $(".error2").css("display", "block"); // show error msg
+      $(".error3").css("display", "none");
+      $("form")
+        .addClass("shake")
+        .delay(500)
+        .queue(function () {
+          $("form").removeClass("shake");
+          $("input[name='uname']").focus().select();
+          $("form").dequeue();
+        });
     } else {
       $(".error").css("display", "block"); // show error msg
       $("form")
@@ -38,7 +58,7 @@ $(document).ready(function () {
         .delay(500)
         .queue(function () {
           $("form").removeClass("shake");
-          $("input[name='psw']").focus().select();
+          $("input[name='uname']").focus().select();
           $("form").dequeue();
         });
     }
