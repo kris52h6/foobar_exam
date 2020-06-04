@@ -86,7 +86,7 @@ function displayBeers(minJson, myTaps) {
       klon.querySelector("img").alt = beertype.label;
       modtagerKloner.appendChild(klon);
 
-      modtagerKloner.lastElementChild.querySelector(".name").addEventListener("click", () => {
+      modtagerKloner.lastElementChild.querySelector(".info").addEventListener("click", () => {
         visSingle(beertype);
       });
     });
