@@ -17,16 +17,50 @@ $(document).ready(function () {
   $("#submit").click(function () {
     event.preventDefault(); // prevent PageReLoad
 
-    const ValidEmail = $("#username").val() === "admin"; // User validate
+    const ValidUser = $("#username").val() === "admin"; // User validate
     const ValidPassword = $("#password").val() === "admin"; // Password validate
 
-    if (ValidEmail === true && ValidPassword === true) {
+    if (ValidUser === true && ValidPassword === true) {
       // if ValidEmail & ValidPassword
       $(".valid").css("display", "block");
       $(".error").css("display", "none");
+      $(".error2").css("display", "none");
+      $(".error3").css("display", "none");
       valid();
+    } else if (ValidUser === true && ValidPassword === false) {
+      $(".error").css("display", "none");
+      $(".error2").css("display", "none");
+      $(".error3").css("display", "block"); // show error msg
+      $("form")
+        .addClass("shake")
+        .delay(500)
+        .queue(function () {
+          $("form").removeClass("shake");
+          $("input[name='psw']").focus().select();
+          $("form").dequeue();
+        });
+    } else if (ValidUser === false && ValidPassword === true) {
+      $(".error").css("display", "none");
+      $(".error2").css("display", "block"); // show error msg
+      $(".error3").css("display", "none");
+      $("form")
+        .addClass("shake")
+        .delay(500)
+        .queue(function () {
+          $("form").removeClass("shake");
+          $("input[name='uname']").focus().select();
+          $("form").dequeue();
+        });
     } else {
       $(".error").css("display", "block"); // show error msg
+      $("form")
+        .addClass("shake")
+        .delay(500)
+        .queue(function () {
+          $("form").removeClass("shake");
+          $("input[name='uname']").focus().select();
+          $("form").dequeue();
+        });
     }
   });
 });
@@ -41,6 +75,7 @@ function displaySetting() {
   console.log("push");
   document.querySelector(".loadContainer").classList.add("hidden");
   document.querySelector("form").classList.add("hidden");
+  document.querySelector(".loginTitle").classList.add("hidden");
   document.querySelector("#settings").style.display = "block";
 }
 

@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", init);
 
 const beerURL = "https://kristian-victor-foobar.herokuapp.com/beertypes";
 const tapsURL = "https://kristian-victor-foobar.herokuapp.com/";
+// const typesURL = "https://kristian-victor-foobar.herokuapp.com/beertypes";
 let cartArray = [];
 let cartlist = document.querySelector(".cartlist");
 let formCheck = document.querySelector("form");
@@ -25,11 +26,13 @@ function init() {
   }
 }
 
-async function getBeers(minJson, myTaps) {
+async function getBeers(minJson, myTaps, myType) {
   let jsonData = await fetch(beerURL);
   minJson = await jsonData.json();
   let tapsData = await fetch(tapsURL);
   myTaps = await tapsData.json();
+  // let typeData = await fetch(beerURL);
+  // myType = await typeData.json();
   displayBeers(minJson, myTaps);
 }
 
@@ -82,6 +85,10 @@ function displayBeers(minJson, myTaps) {
       klon.querySelector("img").src = "image/" + beertype.label;
       klon.querySelector("img").alt = beertype.label;
       modtagerKloner.appendChild(klon);
+
+      modtagerKloner.lastElementChild.querySelector(".info").addEventListener("click", () => {
+        visSingle(beertype);
+      });
     });
   }
 
@@ -163,7 +170,7 @@ function displayCart(cartArray) {
   for (let i = 0; i < orderParse.length; i++) {
     orderPrice = +orderParse[i].amount + orderPrice;
   }
-  let totalPrice = orderPrice * 49;
+
   document.querySelector("body > div.total > h2").textContent = orderPrice * 49 + " DKK";
 
   orderParse.forEach((order) => {
@@ -287,4 +294,33 @@ function redirectURL() {
 // viser antal bestillinger i kuren, på beer.html
 function addedToCart(orders) {
   document.querySelector("span > p").textContent = orders;
+}
+
+// POPUP
+
+function visSingle(beertype) {
+  document.querySelector("#popup").style.display = "block";
+
+  document.querySelector("#popup .luk").addEventListener("click", lukBeer);
+
+  // console.log(minJson);
+
+  document.querySelector(".singleBeer .beerImage").src = "image/" + beertype.label;
+
+  document.querySelector(".singleBeer h1").textContent = beertype.name;
+  document.querySelector(".singleBeer h2").textContent = beertype.category;
+  document.querySelector(".singleBeer .alc").textContent = "Alc: " + beertype.alc + "%";
+  document.querySelector(".singleBeer .aroma").textContent = beertype.description.aroma;
+  document.querySelector(".singleBeer .apperance").textContent = beertype.description.appearance;
+
+  document.querySelector(".singleBeer .flavor").textContent = beertype.description.flavor;
+  document.querySelector(".singleBeer .mouthFeel").textContent = beertype.description.mouthfeel;
+  document.querySelector(".singleBeer .overall").textContent = beertype.description.overallImpression;
+
+  function lukBeer() {
+    document.querySelector("#popup").style.display = "none";
+  }
+}
+function closeNav() {
+  document.querySelector("#popup").style.display = "none";
 }

@@ -132,3 +132,23 @@
 //     alert(":(");
 //   }
 // }
+
+$(function () {
+  $("form").submit(function (e) {
+    e.preventDefault();
+    // correct response
+    if ($("input[name='username']").val() === "correctuser" && $("input[name='password']").val() === "correctpassword") {
+      alert("Login successful!");
+      $("form")[0].reset();
+    } else {
+      $(this)
+        .addClass("shake")
+        .delay(500)
+        .queue(function () {
+          $(this).removeClass("shake");
+          $("input[name='password']").focus().select();
+          $(this).dequeue();
+        });
+    }
+  });
+});
