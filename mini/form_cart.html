@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FooBar Cart</title>
+    <link rel="stylesheet" type="text/css" href="form.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="title">
+      <h1>Cart</h1>
+      <div class="logo_stroke"></div>
+    </div>
+    <template>
+      <section id="cart_wrapper">
+        <div class="cart_left"><h1></h1></div>
+        <div class="cart_right">
+          <div class="wrapper"><h2></h2></div>
+          <button class="remove">remove</button>
+        </div>
+      </section>
+    </template>
+    <section class="cartlist"></section>
+    <div class="purchaseModal">
+      <h1>Looks like your cart is empty</h1>
+      <a href="form_beer.html"> <button>Back To Shop</button> </a>
+    </div>
+    <div class="total">
+      <h1>Total:</h1>
+      <h2></h2>
+    </div>
+    <button class="proceed">Checkout</button><a href="form_beer.html"> <button class="continue">Continue Shopping</button> </a>
+  </body>
+  <script src="form.js"></script>
+</html>

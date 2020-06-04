@@ -1,0 +1,523 @@
+* {
+  margin: 0 0 0 0;
+  box-sizing: border-box;
+  font-family: Roboto;
+}
+body {
+  background-color: var(--primary-color);
+}
+img {
+  width: 100%;
+}
+h1 {
+  color: var(--font-color);
+  opacity: 60%;
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+p {
+  color: white;
+  font-weight: 100;
+}
+b {
+  color: var(--font-color);
+  font-weight: 100;
+}
+.content {
+  display: grid;
+  grid-template-columns: 20vw 20vw 20vw 32vw;
+  grid-template-rows: 2vh 6vh 40vh 40vh;
+  grid-template-areas: "title title time right" "title title switch right" "queueBars queueBars queueLength right" "nextOrder bartenderStatus bartenderStatus right";
+  column-gap: 20px;
+  row-gap: 15px;
+  height: 100vh;
+  padding: 20px;
+}
+.box {
+  background-color: var(--secondary-color);
+  padding: 15px;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
+  -moz-box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
+  box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
+}
+.title {
+  display: flex;
+}
+.logo {
+  width: 1000px;
+}
+.settingButton {
+  grid-area: switch;
+  display: flex;
+}
+#time {
+  color: var(--font-color);
+  font-size: 3rem;
+  font-weight: 100;
+  grid-area: time;
+}
+.openbtn {
+  cursor: pointer;
+  color: white;
+  padding: 10px 15px;
+  height: 30px;
+  width: 30px;
+  background-image: var(--settings-icon);
+  background-size: 100%;
+  position: fixed;
+  right: 50px;
+  top: 30px;
+  z-index: 99;
+}
+.openbtn:hover {
+  height: 30px;
+  width: 30px;
+  background-image: var(--settings-inv);
+  background-size: 100%;
+  animation: rotate 1s;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(180deg);
+  }
+}
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+  right: 0;
+}
+.theme-switch2 {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+  right: 0;
+}
+.theme-switch input {
+  display: none;
+}
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+  width: 26px;
+}
+input:checked + .slider {
+  background-color: #bc86fc;
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+[data-theme="dark"] {
+  --primary-color: #111;
+  --secondary-color: #1d1d1d;
+  --icon-color: #bc86fc;
+  --font-color: white;
+  --circle-bg: #222224;
+  --settings-icon: url(icons/settingsDark.png);
+  --settings-inv: url(icons/settingsDarkInv.png);
+  --logo: url(icons/logoDark.png);
+}
+[data-theme="light"] {
+  --primary-color: white;
+  --secondary-color: white;
+  --icon-color: #631fee;
+  --font-color: black;
+  --circle-bg: #efefef;
+  --settings-icon: url(icons/settingsLight.png);
+  --settings-inv: url(icons/settingsDark.png);
+  --logo: url(icons/logoLight.png);
+}
+.queueBars {
+  grid-area: queueBars;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#barParent {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  align-self: center;
+}
+.bars {
+  width: 3vw;
+  height: calc(var(--height) * 20px);
+  max-height: 200px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  border: var(--icon-color) solid;
+  border-radius: 10px 10px 0px 0px;
+  background-color: var(--icon-color);
+}
+.bars p {
+  text-align: center;
+}
+.queueLength {
+  grid-area: queueLength;
+  position: relative;
+}
+.queueLength h2 {
+  color: var(--font-color);
+  text-align: end;
+  font-size: 5rem;
+  font-weight: 100;
+}
+.costumer_images {
+  display: flex;
+  position: absolute;
+  bottom: 1rem;
+}
+.costumer_img img {
+  width: 100%;
+}
+.costumer_img {
+  display: flex;
+  height: 40px;
+  width: 40px;
+  align-items: center;
+}
+.costumer_img p {
+  font-size: 1.5rem;
+  color: var(--font-color);
+}
+.nextOrder {
+  grid-area: nextOrder;
+}
+.bartenderStatus {
+  grid-area: bartenderStatus;
+}
+.bartenderStatus h2,
+h3,
+h4 {
+  color: var(--font-color);
+  font-weight: 100;
+}
+.bartenderList {
+  margin: 20px 0 0px 20px;
+  width: 40vw;
+  display: flex;
+  justify-content: space-around;
+}
+.bartender_wrapper {
+  width: 15vw;
+  align-items: center;
+}
+.icons {
+  display: flex;
+}
+.largeIcon {
+  width: 5vw;
+}
+.smallIcon {
+  margin-top: 10px;
+  width: 3vw;
+}
+.right {
+  grid-area: right;
+}
+.single-chart {
+  width: 100%;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+.circular-chart {
+  display: block;
+  margin: 10px auto;
+  max-width: 80%;
+  max-height: 250px;
+}
+.circle-bg {
+  fill: none;
+  stroke: var(--circle-bg);
+  stroke-width: 3.8;
+}
+.circle {
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+  stroke-dasharray: var(--stroke), 100;
+}
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+.circular-chart.orange .circle {
+  stroke: var(--icon-color);
+}
+.percentage {
+  fill: var(--font-color);
+  font-family: sans-serif;
+  font-size: 0.5em;
+  font-weight: 100;
+  text-anchor: middle;
+  opacity: 60%;
+}
+.beer {
+  padding: 10px;
+}
+.barParrent {
+  width: 100%;
+  background-color: var(--circle-bg);
+  border-radius: 0px 10px 10px 0px;
+}
+.storage_bar {
+  width: calc(var(--width) * 15px);
+  height: 10px;
+  margin: auto;
+  margin-left: 1px;
+  margin-top: 3px;
+  border: var(--icon-color) solid;
+  border-radius: 0px 10px 10px 0px;
+  background-color: var(--icon-color);
+}
+.storage_image img {
+  width: 50px;
+  height: 50px;
+}
+#storage_parent {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 2vw;
+}
+#storage_parent h2 {
+  color: var(--font-color);
+  font-size: 1.2rem;
+  font-weight: 100;
+}
+.setContainer {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+.setting {
+  display: flex;
+  justify-content: flex-start;
+  background-color: var(--secondary-color);
+  margin-top: 10px;
+  height: 70px;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
+  -moz-box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
+  box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
+}
+.setting h3 {
+  align-self: center;
+  margin: 10px 250px 10px 10px;
+}
+.sidepanel {
+  width: 0;
+  position: fixed;
+  z-index: 100;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  background-color: var(--secondary-color);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  -webkit-box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
+  -moz-box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
+  box-shadow: 2px 1px 12px -1px rgba(0, 0, 0, 0.59);
+}
+.sidepanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.sidepanel a:hover {
+  color: #f1f1f1;
+}
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.error,
+.error2,
+.error3,
+.valid {
+  color: var(--font-color);
+  display: none;
+}
+button {
+  background-color: var(--icon-color);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+button:hover {
+  opacity: 0.8;
+}
+.container {
+  padding: 16px;
+  margin: 20px;
+}
+.hidden {
+  display: none;
+}
+.loading {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: white;
+  margin-top: 5px;
+  margin-left: 2px;
+  animation: dots 2s infinite;
+}
+.loadingbars {
+  display: flex;
+  justify-content: center;
+}
+.loading:nth-child(4) {
+  animation-delay: 0.2s;
+}
+@keyframes dots {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes shake {
+  0%,
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(8px);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-8px);
+  }
+}
+form.shake {
+  animation: shake 0.5s infinite;
+}
+@keyframes glow-red {
+  50% {
+    border-color: indianred;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .content {
+    display: grid;
+    grid-template-columns: 45vw 40vw;
+    grid-template-rows: 5vh 5vh 30vh 30vh 40vh;
+    grid-template-areas: "title switch" "time none" "queueLength nextOrder" "queueBars queueBars" "bartenderStatus bartenderStatus" "right right";
+  }
+  .logo {
+    max-width: 200px;
+  }
+  #time {
+    font-size: 1.5rem;
+  }
+  .settingButton {
+    grid-area: switch;
+  }
+  .queueBars {
+    grid-area: queueBars;
+    display: flex;
+    justify-content: center;
+  }
+  #barParent {
+    display: flex;
+    height: 100%;
+    align-self: center;
+  }
+  .bars {
+    width: 6vw;
+    height: calc(var(--height) * 20px);
+    max-height: 200px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    border: var(--icon-color) solid;
+    border-radius: 5px 5px 0px 0px;
+    background-color: var(--icon-color);
+  }
+  .queueLength {
+    grid-area: queueLength;
+    position: relative;
+  }
+  .costumer_img {
+    display: flex;
+    height: 30px;
+    width: 30px;
+    align-items: center;
+  }
+  .nextOrder {
+    grid-area: nextOrder;
+  }
+  .bartenderStatus {
+    grid-area: bartenderStatus;
+  }
+  .bartenderList {
+    margin: 20px 0 0px 20px;
+    width: 80vw;
+    display: flex;
+    justify-content: space-around;
+  }
+  .bartender_wrapper {
+    width: 20vw;
+    align-items: center;
+  }
+  .icons {
+    display: flex;
+  }
+  .largeIcon {
+    width: 6vw;
+  }
+  .smallIcon {
+    margin-top: 10px;
+    width: 4vw;
+  }
+  .right {
+    grid-area: right;
+  }
+}

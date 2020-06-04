@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FooBar Form</title>
+    <link rel="stylesheet" type="text/css" href="form.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="title">
+      <h1>Beer</h1>
+      <div class="logo_stroke"></div>
+      <a href="form_cart.html">
+        <img src="icons/cart.png" /> <span><p>0</p> </span>
+      </a>
+    </div>
+    <div id="popup">
+      <section class="indhold">
+        <article class="singleBeer">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <div class="imgBox"><img alt="beer image" class="beerImage" /></div>
+          <h1></h1>
+          <h2></h2>
+          <p class="alc"></p>
+          <br />
+          <p><b>Aroma: </b></p>
+          <p class="aroma"></p>
+          <br />
+          <p><b>Apperance: </b></p>
+          <p class="apperance"></p>
+          <br />
+          <p><b>Flavor: </b></p>
+          <p class="flavor"></p>
+          <br />
+          <p><b>Mouth feel: </b></p>
+          <p class="mouthFeel"></p>
+          <br />
+          <p><b>Overall Impression: </b></p>
+          <p class="overall"></p>
+        </article>
+      </section>
+    </div>
+    <template>
+      <article class="grid">
+        <div class="infobtn"><button class="info">i</button></div>
+        <div class="images"><img /></div>
+        <h2 class="name"></h2>
+        <h4 class="price">49DKK</h4>
+        <h4 class="unavailable"></h4>
+        <div class="button">
+          <div class="quantity_wrapper"><label for="quantity"></label> <button class="minus">--</button> <input class="quantity" name="quantity" min="1" max="9" value="1" /> <button class="plus">+</button></div>
+          <div class="addcart_wrapper"><button class="add">Add to cart</button></div>
+        </div>
+      </article>
+    </template>
+    <section class="beerlist"></section>
+    <a href="form_cart.html"> <button class="proceed">Proceed</button> </a>
+  </body>
+  <script src="form.js"></script>
+</html>
