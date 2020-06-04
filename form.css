@@ -10,6 +10,10 @@ body {
   margin-right: 15px;
 }
 
+img {
+  width: 100%;
+}
+
 .logo_stroke {
   width: 100%;
   height: 1px;
@@ -425,21 +429,26 @@ input[type="submit"] {
 
 .infobtn {
   width: 100%;
-  border-radius: 100px;
-}
-
-.infobtn button {
-  background-at;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .info {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
+
   width: 30px;
   height: 30px;
   border-radius: 50%;
   font-size: 1rem;
   font-family: serif;
+  cursor: pointer;
+
+  align-self: baseline;
+}
+
+.info:hover {
+  background-color: #e1d0d0;
 }
 
 /*** POP UP ***/

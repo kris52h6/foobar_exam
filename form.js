@@ -301,7 +301,7 @@ function addedToCart(orders) {
 function visSingle(beertype) {
   document.querySelector("#popup").style.display = "block";
 
-  document.querySelector("#popup .luk").addEventListener("click", lukBeer);
+  // document.querySelector("#popup .luk").addEventListener("click", lukBeer);
 
   // console.log(minJson);
 
